@@ -1,0 +1,79 @@
+/* 
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/31267/global-dark-style-changes-everything-to-dark
+  [2] https://userstyles.org/styles/23516/midnight-surfing-global-dark-style
+  [3] https://userstyles.org/styles/131303/global-black-theme
+  [4] https://userstyles.org/styles/104936/global-style-pitch-black
+  [5] https://userstyles.org/styles/112107/global-black-for-amoled-displays
+  [6] https://userstyles.org/styles/135297/global-dark-style-everything-to-dark-2016
+  [7] https://userstyles.org/styles/106787/black-coffee-dark-global-style-for-night
+*/
+
+html, body {
+  background-size: auto !important;
+  background-image: none !important;
+  background-color: #272C2D !important;
+  color: rgb(216, 216, 216) !important;
+  background-repeat: repeat !important;
+  background-clip: border-box !important;
+  background-position: left top !important;
+  background-attachment: scroll !important;
+  background-origin: padding-box !important;
+}
+
+* {
+  border-color: #444 !important;
+  border-top-color: #444 !important;
+  border-left-color: #444 !important;
+  border-right-color: #444 !important;
+  border-bottom-color: #444 !important;
+}
+
+div, table {
+  color: #efefef !important;
+  background-color: #161616 !important;
+}
+
+a {
+  color: #efefef !important;
+  background-image: none !important;
+  background-color: #222 !important;
+}
+
+a:link {
+  color: #3f90bf !important;
+  background-image: none !important;
+  background-color: #222 !important;
+}
+
+a:visited {
+  color: lightblue !important;
+  background-image: none !important;
+  background-color: #222 !important;
+}
+
+input, textarea {
+  color: #f0f0f0 !important;
+  border-color: #333 !important;
+  background-image: none !important;
+  background-color: #333 !important;
+}
+
+h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, strong, a.active, .selected, [href="#"], a.active *, 
+.selected *, a.highlight, a.highlight *, [id*="header"], [id*="headline"], [class*="header"], [class*="headline"], [class*="header"] td {
+  color: #DDD !important;
+}
+
+img {
+  opacity: 0.8 !important
+}
+
+img:hover, a:hover img {
+  opacity: 1.0 !important
+}
+
+@-moz-document url(about:blank) {
+  html {
+    background-color: #000
+  }
+}

@@ -1,0 +1,53 @@
+html {background-color: rgb(22, 22, 22) !important}
+
+html, iframe {
+  filter: invert(100%) !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+em,
+img,
+svg,
+image,
+video,
+audio,
+embed,
+object,
+button,
+figure:empty {
+  filter: invert(100%) !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+[style*='background:url']:not(html):not(body):not(input),
+[style*='background: url']:not(html):not(body):not(input),
+[style*='background-image']:not(html):not(body):not(input) {
+  filter: invert(100%) !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+#docs-branding-logo,
+div[class*="-button-action"] {
+  background-color: #999999 !important;
+}
+
+div[class*="-button-action"] {
+  border-color: #666666 !important;
+  background-image: none !important;
+}
+
+.a-nEbBXb .a-qc-La {
+  background-color: #e3e3e3 !important;
+}
+
+.a-nEbBXb .a-D-B.a-D-B-gc-WErN3d {
+  background-color: #c0c0c0 !important;
+}
+
+.gb_xd {
+  background-color: #d9d9d9 !important;
+}
+
+.h-uj {
+  background: #d6d6d6 !important;
+}

@@ -1,0 +1,25 @@
+label {color: #c5c5c5}
+.comment {color: #37b5ff}
+.hl {background-color: #353535}
+html {background-color: #232323}
+
+.highlight {
+  background-color: #2e2e2e;
+  outline: solid 1px rgba(255, 255, 255, 0.2);
+}
+
+.title {
+  color: #c5c5c5;
+  background-color: rgba(0,0,0,0.05);
+}
+
+.options {
+  border: solid 1px rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+textarea {
+  color: #d8d8d8;
+  background-color: #383838;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+}

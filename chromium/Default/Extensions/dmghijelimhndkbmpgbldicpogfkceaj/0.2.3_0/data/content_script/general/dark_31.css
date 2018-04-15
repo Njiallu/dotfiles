@@ -1,0 +1,10 @@
+body {
+  background-color: #262626 !important;
+  filter: invert(85%) hue-rotate(180deg) !important;
+  -webkit-filter: invert(85%) hue-rotate(180deg) !important;
+}
+
+em, img, svg, image, video, audio, embed, iframe, object, button, canvas, figure:empty {
+  filter: invert(100%) hue-rotate(-180deg) !important;
+  -webkit-filter: invert(100%) hue-rotate(-180deg) !important;
+}

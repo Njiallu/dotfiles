@@ -1,0 +1,8 @@
+body {
+    overflow: hidden;
+    }
+#whitelist {
+    height: 75vh;
+    text-align: left;
+    width: 100%;
+    }

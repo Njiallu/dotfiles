@@ -1,0 +1,20 @@
+#scene {
+  background: #222 !important;
+}
+
+#pane .widget-pane,
+#app-container #scene {
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  filter: invert(100%) hue-rotate(180deg);
+  -webkit-filter: invert(100%) hue-rotate(180deg);
+}
+
+#pane .widget-pane .section-hero-header-hero,
+#pane .widget-pane .section-image-pack-button,
+#pane .widget-pane .section-directions-omnibox {
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  filter: invert(100%) hue-rotate(180deg);
+  -webkit-filter: invert(100%) hue-rotate(180deg);
+}

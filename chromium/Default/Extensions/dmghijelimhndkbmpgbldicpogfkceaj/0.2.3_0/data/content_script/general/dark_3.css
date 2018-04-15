@@ -1,0 +1,65 @@
+/* 
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/31267/global-dark-style-changes-everything-to-dark
+  [2] https://userstyles.org/styles/23516/midnight-surfing-global-dark-style
+  [3] https://userstyles.org/styles/131303/global-black-theme
+  [4] https://userstyles.org/styles/104936/global-style-pitch-black
+  [5] https://userstyles.org/styles/112107/global-black-for-amoled-displays
+  [6] https://userstyles.org/styles/135297/global-dark-style-everything-to-dark-2016
+  [7] https://userstyles.org/styles/106787/black-coffee-dark-global-style-for-night
+*/
+
+* {
+  border-color: #252525 !important
+}
+
+html, body, body>div {
+  background-color: #000 !important
+}
+
+div[style*="transparent"] *:not(img) {
+  opacity: 0 !important
+}
+
+@-moz-document url(about:blank) {
+  html {
+    background-color: #000
+  }
+}
+
+browser[type="content-primary"] {
+  background-color: #000 !important
+}
+
+body *:not([background]):not(input) {
+  background-color: #000 !important
+}
+
+body * {
+  text-shadow: none !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+body a, body a:link, body a *:not(img), body a:link *:not(img) {
+  color: #30C5FF !important;
+  background-color: rgba(60, 60, 60, 0) !important;
+}
+
+body a:hover, body a:active, body a:hover *:not(img), body a:active *:not(img) {
+  color: #40e0ff !important;
+  background-image: none !important;
+  background-color: rgba(60, 60, 60, 0) !important;
+}
+
+body a:visited, body a:visited *:not(img) {
+  color: #9182ff !important;
+  background-image: none !important;
+  background-color: rgba(60, 60, 60, 0) !important;
+}
+
+body input, body textarea {
+  color: #f0f0f0 !important;
+  border-color: #333 !important;
+  background-image: none !important;
+  background-color: #222 !important;
+}

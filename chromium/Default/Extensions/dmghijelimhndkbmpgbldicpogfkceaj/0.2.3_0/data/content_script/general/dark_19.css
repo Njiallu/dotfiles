@@ -1,0 +1,44 @@
+/*
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/139698/global-darkness-orange-and-black
+*/
+
+html {
+  background-image: none !important;
+  background-color: black !important;
+  filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(90%) !important;
+  -webkit-filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(90%) !important;
+}
+
+body {
+  color: #222 !important;
+  background-image: none !important;
+  background-color: white !important;
+}
+
+em, img, svg, image, video, audio, embed, iframe, object, button, canvas, figure:empty {
+  filter: invert(100%) !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+:-webkit-full-screen img,
+:-webkit-full-screen svg,
+:-webkit-full-screen video,
+:-webkit-full-screen embed,
+:-webkit-full-screen object,
+:-webkit-full-screen canvas,
+:-webkit-full-screen button  {
+  filter: invert(0%) !important;
+  -webkit-filter: invert(0%) !important;
+}
+
+:-moz-full-screen img,
+:-moz-full-screen svg,
+:-moz-full-screen video,
+:-moz-full-screen embed,
+:-moz-full-screen object,
+:-moz-full-screen canvas,
+:-moz-full-screen button  {
+  filter: invert(0%) !important;
+  -webkit-filter: invert(0%) !important;
+}

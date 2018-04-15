@@ -1,0 +1,82 @@
+/*
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/139698/global-darkness-orange-and-black
+*/
+
+:root {
+  --font-color: #cb4b16;
+  --link-color: #268Bd2;
+  --heading-color: #b58900;
+  --primary-color: #073642;
+  --background-color: #191919;
+  --placeholder-color: #2aa198;
+  --link-visited-color: #6c71c4;
+  --link-hover-background-color: #073642;
+}
+
+html, body {
+  background-image: none !important;
+  background-color: var(--background-color) !important;
+}
+
+html body * {
+  background-color: transparent !important;
+}
+
+html, body, html body * {
+  color: var(--font-color) !important;
+  border-color: var(--font-color) !important;
+}
+
+html body .modal-content, html body .so-header, html body .GlobalNavMenu, html body .ui-popup, html body #mousehelper, html body .dropdown-contents {
+  background-color: var(--background-color) !important;
+}
+
+html body .nav-tabs>li, html body .nav-tabs>li *, html body .reponav-item, html body #tabs>a {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+html body .nav-tabs>li.active a, html body .reponav-item.selected, html body #tabs>a.youarehere {
+  background-color: var(--background-color) !important;
+  border-color: var(--font-color) !important;
+  border-bottom-color: transparent !important;
+}
+
+.headerbar, .forumbg {
+  background-image: none;
+}
+
+html body a, html body a * {
+  color: var(--link-color) !important;
+}
+
+html body a:hover, html body a:hover *, html body button:hover, html body button:hover *, html body .table-hover tbody tr:hover, html body .table-hover tbody tr:hover * {
+  background-color: var(--link-hover-background-color) !important;
+}
+
+html body a:visited, html body a:visited * {
+  color: var(--link-visited-color) !important;
+}
+
+html body h1, html body h1 *, html body h2, html body h2 *, html body h3, html body h3 *, html body h4, html body h4 *, html body h5, html body h5 *, html body h6, html body h6 * {
+  color: var(--heading-color) !important;
+}
+
+html body .btn-primary, html body .btn-primary * {
+  background-color: var(--primary-color) !important;
+}
+
+::selection {
+  color: var(--background-color) !important;
+  background-color: var(--font-color) !important;
+}
+
+::-moz-selection {
+  color: var(--background-color) !important;
+  background-color: var(--font-color) !important;
+}
+
+::placeholder, ::-webkit-input-placeholder, :-ms-input-placeholder {
+  color: var(--placeholder-color) !important;
+}

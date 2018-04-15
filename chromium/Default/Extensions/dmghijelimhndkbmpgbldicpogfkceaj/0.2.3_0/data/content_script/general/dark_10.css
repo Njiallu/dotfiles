@@ -1,0 +1,34 @@
+/* 
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/22354/dark-global-style-twilight
+*/
+
+html *, html {
+  color: #F8F8F8 !important;
+  background-color: #161616 !important;
+}
+
+a {
+  color: #cda869 !important;
+}
+
+a:hover {
+  color: #cf6a4c !important;
+}
+
+a:visited {
+  color: #9b703f !important;
+}
+
+input, select, textarea, button {
+  color: #F8F8F8 !important;
+  -moz-appearance: none !important;
+  border: 1px solid #8f9d6a !important;
+  background-color: #202020 !important;
+}
+
+code, pre, input, samp, kbd, var, dfn {
+  color: lightgrey !important;
+  -moz-appearance: none !important;
+  background-color: #111 !important;
+}

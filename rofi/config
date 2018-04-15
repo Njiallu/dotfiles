@@ -1,0 +1,52 @@
+rofi.modi: window,run,drun,combi
+rofi.opacity: 85
+rofi.width: 50
+rofi.lines: 12
+rofi.columns: 1
+rofi.font: DejaVuSansMono Nerd Font 12
+rofi.bw: 0
+rofi.location: 0
+rofi.padding: 0
+rofi.yoffset: 0
+rofi.xoffset: 0
+/*Always show number of lines*/
+rofi.fixed-num-lines: true
+/*Terminal to use*/
+rofi.terminal: rofi-sensible-terminal
+rofi.ssh-client: ssh
+rofi.ssh-command: {terminal} -e {ssh-client} {host}
+rofi.run-command: {cmd}
+rofi.run-list-command:
+rofi.run-shell-command: {terminal} -e {cmd}
+rofi.window-command: xkill -id {window}
+rofi.disable-history: false
+rofi.levenshtein-sort: false
+rofi.case-sensitive: false
+rofi.cycle: true
+/*Enable sidebar-mode*/
+rofi.sidebar-mode: true
+/*Row height (in chars)*/
+rofi.eh: 1
+rofi.font: DejaVuSansMono Nerd Font 16
+rofi.auto-select: false
+rofi.parse-hosts: false
+rofi.parse-known-hosts: true
+rofi.combi-modi: window,run
+rofi.fuzzy: false
+rofi.glob: false
+rofi.regex: false
+rofi.tokenize: true
+rofi.m: -5
+rofi.line-margin: 2
+rofi.filter: 
+/*Separator style (none, dash, solid)*/
+rofi.separator-style: none
+rofi.hide-scrollbar: false
+rofi.fullscreen: true
+rofi.dpi: -1
+rofi.threads: 4
+rofi.scroll-method: 1
+rofi.pid: /run/user/1000/rofi.pid
+rofi.kb-primary-paste: Control+Shift+v,Shift+Insert
+rofi.kb-secondary-paste: Control+v,Insert
+rofi.theme: flat_gruvbox.rasi

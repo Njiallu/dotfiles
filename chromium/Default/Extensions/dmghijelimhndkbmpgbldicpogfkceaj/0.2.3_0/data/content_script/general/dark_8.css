@@ -1,0 +1,241 @@
+/* 
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/31267/global-dark-style-changes-everything-to-dark
+*/
+
+html *:not(.ytp-progress-list):not(._4tsk):not(img):not(._3oh-):not(._3i_m):not(._29_7):not(.uiPopover):not([data-uri]):not(input):not(form):not(textarea):not(iframe):not(embed):not([role="button"]):not(button):not(select):not(.jewelCount):not(.vjs-text-track-display):not(.mw-headline-link):not(._53j5):not(.textLayer):not(.jw-reset):not(.mtm):not(.ytp-play-progress):not(tm)>*:not(.ytp-progress-list):not(._15gf):not(img):not(._3oh-):not(._3i_m):not(._29_7):not(.uiPopover):not([data-uri]):not(input):not(form):not(textarea):not(iframe):not(embed):not(button):not(select):not(.jewelCount):not([role="button"]):not(.vjs-text-track-display):not(.mw-headline-link):not(._53j5):not(.textLayer):not(.jw-reset):not(.mtm):not(.ytp-play-progress):not(tm) {
+  color: rgba(221, 221, 221, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.15)!important;
+  background-color: rgba(20, 20, 20, 0.90) !important;
+  text-shadow: none!important;
+}
+
+html *:not(#outerContainer) ._3zvs>* {
+  background: #FFF!important;
+}
+
+html iframe>* {
+  background-color: transparent!important;
+}
+
+form, textarea, input, button, select {
+  background-color: rgb(25, 26, 30) !important;
+  color: #FFF!important;
+  border-color: rgb(57, 63, 76)!important;
+  border: 1px solid #000;
+}
+
+button:empty, select:empty {
+  opacity: 0.3!important;
+}
+
+input:hover, button:hover, select:hover {
+  background-color: #000!important;
+  color: gray!important;
+}
+
+html * ul {
+  list-style-image: none;
+}
+
+html * input, html * textarea {
+  background: #FFF!important;
+  color: #000!important;
+}
+
+html, body {
+  background-color: rgba(20, 20, 20, 0.96) !important;
+}
+
+#notificationsCountValue, #mercurymessagesCountValue, #requestsCountValue {
+  background-color: rgb(35, 222, 35) !important;
+}
+
+._4xi2.east a.jewelButton ._2n_9 {
+  background-position: 0 -312px !important;
+}
+
+._1z4y a.jewelButton ._2n_9 {
+  background-position: 0 -363px !important;
+}
+
+._3nzl a.jewelButton ._2n_9 {
+  background-position: 0 -214px !important;
+}
+
+html ._400_._3htz {
+  background: transparent!important;
+}
+
+html *:not(#outerContainer) a {
+  color: rgb(111, 147, 193) !important;
+}
+
+html *:not(#outerContainer) a:visited {
+  color: rgb(111, 147, 193) !important;
+}
+
+html *:not(#outerContainer) a[style="border-bottom: 1px solid red;"] {
+  border-color: rgb(35, 222, 35)!important;
+}
+
+h1, h2, h3, h4, h5, html h1>*, html h2>*, html h3>*, html h4>*, html h5>* {
+  color: rgb(133, 182, 126) !important;
+}
+
+html tm {
+  background: yellow !important;
+  color: #000 !important;
+}
+
+html tm[style="color:#ffffff;background-color:#cc0000;"], html tm[style="background-color:#cc0000;color:#ffffff;"] {
+  background: rgb(232, 29, 245) !important;
+  color: #FFF !important;
+}
+
+html tm[style="background-color:#ffc500;"] {
+  background: cyan !important;
+  color: #000 !important;
+}
+
+html tm[style="color:#ffffff;background-color:#cc0000;"]>tm {
+  background: rgb(232, 29, 245) !important;
+  color: #FFF !important;
+}
+
+html tm[style="color:#ffffff;background-color:#cc0000;"]>tm[style="background-color:#ffc500;"], html tm[style="background-color:#ffc500;"]>tm {
+  background: cyan !important;
+  color: #000 !important;
+}
+
+html a tm {
+  text-decoration: underline!important;
+  color: brown !important;
+  font-style: italic;
+  background: gold!important;
+}
+
+html *::-moz-selection {
+  color: #000!important;
+  background: rgb(35, 222, 35) !important;
+}
+
+html *::-moz-selection {
+  color: #000!important;
+  background: rgb(35, 222, 35) !important;
+}
+
+html a::-moz-selection {
+  color: #000!important;
+  background: green!important;
+  color: #FFF!important;
+}
+
+html tm::-moz-selection {
+  color: #000!important;
+  background: darkorange!important;
+}
+
+html tm[style="color:#ffffff;background-color:#cc0000;"]::-moz-selection, html tm[style="background-color:#cc0000;color:#ffffff;"]::-moz-selection {
+  color: #FFF!important;
+  background: darkmagenta!important;
+}
+
+html tm[style="background-color:#ffc500;"]::-moz-selection {
+  color: #000!important;
+  background: darkcyan!important;
+}
+
+html tm[style="background-color:#ffc500;"] a::-moz-selection, html a tm[style="background-color:#ffc500;"]::-moz-selection {
+  color: #FFF!important;
+}
+
+html tm[style="background-color:#ffc500;"] a, html a tm[style="background-color:#ffc500;"] {
+  color: gray!important;
+}
+
+html tm[style="color:#ffffff;background-color:#cc0000;"] a, html tm[style="background-color:#cc0000;color:#ffffff;"] a, 
+html a tm[style="color:#ffffff;background-color:#cc0000;"], html a tm[style="background-color:#cc0000;color:#ffffff;"] {
+  color: pink!important;
+}
+
+#facebook * ._28xr, #facebook * ._5ine, #facebook .lfloat._ohe * {
+  background-color: transparent!important;
+}
+
+._6gb._6gf {
+  background: #FFF!important;
+}
+
+.fbNubFlyoutInner {
+  border: 1px solid #FFF !important;
+}
+
+html *>#fbCoverImageContainer *, html *>* .actions {
+  background: transparent!important;
+}
+
+html *>a>._2n_9 {
+  color: #FFF!important;
+}
+
+html *>button.active *:before {
+  color: rgba(35, 222, 35, 0.80) !important;
+}
+
+html *>#vol-bar-inner {
+  background-color: rgba(35, 222, 35, 0.80) !important;
+}
+
+#bar-inner, html #bar-outer>#position {
+  background-color: rgb(35, 222, 35) !important;
+  border-color: #FFF!important;
+}
+
+html *:not(#outerContainer) .ytp-volume-slider-handle::before, html *:not(#outerContainer) .ytp-scrubber-container, html *>.ytp-load-progress {
+  color: #000!important;
+  background-color: rgb(35, 222, 35) !important;
+}
+
+html *:not(#outerContainer) .ytp-hover-progress {
+  background: #FFF!important;
+  opacity: 0.3;
+}
+
+html *:not(#outerContainer) .annotation {
+  background: transparent!important;
+}
+
+html *>.ytp-play-progress, html *>.ytp-play-progress.ytp-swatch-background-color, .ytp-gradient-bottom, .ytp-gradient-bottom>* {
+  display: none!important;
+}
+
+@-moz-document domain("messenger.com") {
+  ._3oh-, ._hh7, ._3i_m {
+    filter: grayscale(0.6);
+  }
+  html *:not(#outerContainer) *[class*="_4-o"] {
+    background: transparent!important;
+  }
+  html *:not(#outerContainer) ._2poz._ui9._383m {
+    background: #000!important;
+  }
+  ._1t_p ._3oh- {
+    color: #000!important;
+  }
+  ._29_7 ._hh7, ._29_7 ._3oh- {
+    background-color: rgb(44, 46, 53)!important;
+    color: gray!important;
+    filter: grayscale(0);
+  }
+}
+
+window #main-window, window .browserContainer {
+  background: #303642!important;
+}
+
+@-moz-document url-prefix(about:blank) {
+  * {
+    background: rgb(20, 20, 20)!important;
+  }
+}

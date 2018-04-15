@@ -1,0 +1,270 @@
+/* 
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/31267/global-dark-style-changes-everything-to-dark
+  [2] https://userstyles.org/styles/23516/midnight-surfing-global-dark-style
+  [3] https://userstyles.org/styles/131303/global-black-theme
+  [4] https://userstyles.org/styles/104936/global-style-pitch-black
+  [5] https://userstyles.org/styles/112107/global-black-for-amoled-displays
+  [6] https://userstyles.org/styles/135297/global-dark-style-everything-to-dark-2016
+  [7] https://userstyles.org/styles/106787/black-coffee-dark-global-style-for-night
+*/
+
+span:not(:empty):not([class*="icon"]):not([id*="icon"]):not([class*="star"]):not([id*="star"]):not([id*="rating"]):not([class*="rating"]):not([class*="prite"]) {
+  border-color: #000 !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+li a:not([class*="icon"]):not([id*="icon"]):not([onclick]), dt a:not([class*="icon"]):not([id*="icon"]):not([onclick]) {
+  text-indent: 0 !important;
+  background-image: none !important;
+}
+
+table {
+  border-color: #333 !important;
+  background-image: none !important;
+  background-color: #232323 !important;
+}
+
+html body input:not([type="image"]), button, html body textarea {
+  opacity: 1 !important;
+  color: #DDD !important;
+  border-radius: 0 !important;
+  -moz-appearance: none !important;
+  -moz-border-radius: 0 !important;
+  border: solid 1px #444 !important;
+  background-image: none !important;
+  -webkit-appearance: none !important;
+  -webkit-border-radius: 0 !important;
+  background-color: #353535 !important;
+}
+
+html body input[type="checkbox"] {
+  -moz-appearance: checkbox !important;
+  -webkit-appearance: checkbox !important;
+}
+
+html body input[type="radio"] {
+  -moz-appearance: radio !important;
+  -webkit-appearance: radio !important;
+}
+
+html:root input[type="button"], html:root input[type="submit"], html:root input[type="reset"], html:root button {
+  color: #EEE !important;
+  background-image: none !important;
+  background-color: #3c3c3c !important;
+}
+
+html:root input[type="button"]:hover, html:root input[type="submit"]:hover, html:root input[type="reset"]:hover, html:root button:hover {
+  color: #FFF !important;
+  border-color: #5F687F !important;
+  background-image: none !important;
+  background-color: #31344F !important;
+}
+
+select, option, optgroup {
+  color: #f1f1f1 !important;
+  border-color: #555 !important;
+  -moz-appearance: none !important;
+  background-image: none !important;
+  background-color: #383838 !important;
+}
+
+[id*="top"]:empty, [id*="round"]:empty, [id*="bottom"]:empty, [class*="top"]:empty, [class*="Top"]:empty, [class*="spacer"]:empty, [class*="bottom"]:empty, [class*="Bottom"]:empty, img[src*="spacer"]:empty {
+  background-image: none !important;
+}
+
+nav, menu, html body [id*="popup"], html body [class*="note"], html body [class*="open"], html body [id*="Dropdown"], html body [id*="dropdown"], html body [class*="popup"], html body [class*="detail"], html body [class*="tooltip"], html body [class*="Dropdown"], html body [class*="dropdown"], html body [class*="description"], html body [id*="menu"]:not(SELECT), html body [class*="menu"]:NOT(SELECT) {
+  background-image: none !important;
+  background-color: #232323 !important;
+}
+
+* {
+  color: #CCC !important;
+  text-shadow: none !important;
+  border-color: #444 !important;
+  outline-color: #444 !important;
+}
+
+html *:after, html *:before {
+  color: #CCC !important;
+  border-color: #666 !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+a:link, a:link *:not(img) {
+  color: #B1CBF7 !important;
+  border-color: #666 !important;
+  background-image: none !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+a:hover, a:hover *:not(img) {
+  color: #FFE900 !important;
+  border-color: #999 !important;
+}
+
+html [href*="#"]:hover {
+  color: #FFE900 !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+[onclick], [ondblclick], [onmousedown] {
+  color: #DFD5BC !important;
+  text-indent: 0 !important;
+}
+
+img:hover {
+  opacity: 1 !important;
+  background-color: #888 !important;
+}
+
+::-moz-selection {
+  color: #F6F7B9 !important;
+  background-color: #626F61 !important;
+}
+
+div.vsc:hover>.vspi, div.vso>.vspi {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+img {
+  opacity: .75 !important
+}
+
+.current {
+  color: #FFF !important
+}
+
+hr {
+  background-color: #444 !important
+}
+
+svg {
+  background-color: #666 !important
+}
+
+dt {
+  background-color: #2B3135 !important
+}
+
+address {
+  background-color: #333 !important
+}
+
+input *, textarea * {
+  color: #DDD !important
+}
+
+table table {
+  background: #191919 !important
+}
+
+li, ul {
+  background-color: inherit !important
+}
+
+h3, h4 {
+  background-color: #2A3731 !important
+}
+
+h1, h2 {
+  background-color: #28313E !important
+}
+
+h5, h6 {
+  background-color: #372A2A !important
+}
+
+dl, dd {
+  background-color: #232323 !important
+}
+
+div[id] {
+  background-color: inherit !important
+}
+
+.g .r {
+  background-color: transparent !important
+}
+
+html, body {
+  background-color: #141414 !important
+}
+
+body * {
+  background-color: transparent !important
+}
+
+th, caption {
+  background-color: #353535 !important
+}
+
+a:visited, a:visited * {
+  color: #CDB4E7 !important
+}
+
+#header h1 {
+  background-color: transparent !important
+}
+
+summary, details {
+  background-color: inherit !important
+}
+
+html:root input[type="image"] {
+  opacity: 0.85 !important
+}
+
+abbr, progress, time, label, .date {
+  color: #CDEFC2 !important
+}
+
+html:root input[type="image"]:hover {
+  opacity: 0.95 !important
+}
+
+@-moz-document url(about:blank) {
+  html {
+    background-color: #000
+  }
+}
+
+browser[type="content-primary"] {
+  background-color: #141414 !important
+}
+
+[class*="content"], [class*="container"] {
+  background-color: #1c1c1c !important
+}
+
+[onclick]:hover, [ondblclick]:hover, [onmousedown]:hover {
+  color: #FEFF97 !important
+}
+
+header, #header {
+  background: -moz-linear-gradient(#333, #141414) transparent !important
+}
+
+[id*="masthead"] a, [id*="header"] a, [id*="logo"] a, [class*="logo"] a {
+  text-indent: 0 !important
+}
+
+mark, code, pre, blockquote, [class*="quote"], td[style*="inset"][class="alt2"] {
+  background-color: #00090F !important
+}
+
+li[class*="item"] a:hover, li[class*="item"]:hover, [class*="menuitem"]:hover {
+  background-color: #2E2B2F !important
+}
+
+html:root>body>*>*>*>*:not(input):not([onclick])>div:not(:empty):not([id]) {
+  background-color: #1c1c1c !important
+}
+
+html:root body [class*="layer"], html:root body #lightbox-nav, html:root body #imageContainer {
+  background-color: transparent !important
+}

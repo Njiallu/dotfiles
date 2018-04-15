@@ -1,0 +1,43 @@
+{
+   "background": {
+      "page": "lib/chrome/background.html"
+   },
+   "browser_action": {
+      "default_icon": {
+         "16": "data/icons/dark/16.png",
+         "32": "data/icons/dark/32.png",
+         "48": "data/icons/dark/48.png",
+         "64": "data/icons/dark/64.png"
+      },
+      "default_title": "Dark Mode"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "exclude_globs": [ "*/chrome/newtab*" ],
+      "js": [ "data/content_script/inject.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "A global dark theme for the web",
+   "homepage_url": "http://mybrowseraddon.com/dark-mode.html",
+   "icons": {
+      "128": "data/icons/128.png",
+      "16": "data/icons/16.png",
+      "32": "data/icons/32.png",
+      "48": "data/icons/48.png",
+      "64": "data/icons/64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgnrcxCa3jGkAJYQMqm94t6K7pGP4GP8UZ8OnNnpC18RoXQTdit5Qwos1NmrbdfzW8QEZkqNTTQkXUPkCdRBZ/Qf92vIbsyiDb95FWRzmko1J53+bVfjA2v362gQlwuUNtte0zFNmxMXMNUGjZTNidcZPLHCXaRVi5aOfVg2OzH2nIQ6CX+Hd9CM6m3uUlUByvaWkPcGdnqwd/guC1eL1dq92Qn8AEKEWvCytNuGqYUgA85Mq4g6ciaeyA00fkv2qatMrwEDbC5EJALrUEHE94NsJugwaD6SF/01CY0vPNmrVXq0enrQH+ThsZaqecevyH7tk+zZ68U6ih7aH47JIVwIDAQAB",
+   "manifest_version": 2,
+   "name": "Dark Mode",
+   "options_ui": {
+      "chrome_style": true,
+      "page": "data/options/options.html"
+   },
+   "permissions": [ "storage", "\u003Call_urls>", "contextMenus" ],
+   "short_name": "darkmode",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.2.3",
+   "web_accessible_resources": [ "data/content_script/*.css" ]
+}

@@ -1,0 +1,168 @@
+/*
+  Parts of this code is inspired from the following:
+  [1] https://github.com/liorgrossman/darkness/tree/master/chrome-extension/themes
+*/
+
+html, body {min-height: 100% !important}
+
+html {
+  text-shadow: none !important;
+  background-color: #212121 !important
+}
+
+body {
+  filter: invert(100%) !important;
+  background-color: #d5d5d5 !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+.blank-state__button, .jobs-logo, .enterprise-header__logo-gliph, .enterprise-header__title-text,
+button.button-as-link .link-img, .drops-empty-page-cta>button, .bar-graph-legend, .bar-graph-part,
+.comment-box .post-button, .browse-file-row__column form, .react-title-bar__controls>.share-button,
+div[role="button"], .install-button-component, .gifting-cta__button, a.freshbutton-blue, .login-button,
+button, input, img, iframe, video, embed:not([type$="pdf"]), object, svg, canvas, [background*="http"],
+.expanding-section__button, #select-btn, #select-btn:hover, .invite-icon__facebook, .invite-icon__gmail,
+.freshbutton-blue, .search-bar .search-bar__button, *[style*="background-image:"], .dbmodal-button:disabled,
+.dbmodal-button.button-primary, .button-primary.choose-folder-submit, .notes-sidebar-page-cta, .dbox-app-promo-cta button,
+.dbmodal-button.c-btn--primary, .unified-share-modal__share-send, .confirm-button.c-btn--primary, .c-btn--primary.u-mar-left-s, .u-l-fr .c-btn,
+div.drk_settings, div.drk_settings_icon, div.drk_dialog, .addthis_sharing_toolbox, .drk_invert_back, .content-link-sync-modal__add-to-dropbox-button {
+  filter: invert(100%) !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+.search-bar__button, button, input[type="submit"], input[type="button"] {
+  color: #050300 !important;
+  background-color: #ed7056 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+textarea, input[type="text"] {
+  color: #0f0b06 !important;
+  background-color: #f0f0ef !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+button, a.freshbutton-blue, #all-positions, .nav-all-jobs, .section-view-all a.btn {
+  color: #050300 !important;
+  background-color: #ed7056 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.button--primary, .button-primary {
+  color: #292929 !important;
+  background-color: #f79c82 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+input {
+  color: #0f0b06;
+  background-color: #f0f0ef;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+button.button-as-link {
+  color: #9a2810 !important;
+  background-color: transparent !important;
+}
+
+.quota_graph_bar {
+  border-color: #f29784 !important;
+  background-color: #ed7056 !important;
+}
+
+.browse-file-row:hover, .browse-file-row--is-selected {
+  background-color: #f29784 !important;
+  border-top-color: #ed7056 !important;
+  border-bottom-color: #ed7056 !important;
+}
+
+.paging-list .selected {
+  color: #9a2810 !important;
+  background-color: #f29784 !important;
+}
+
+.event-row:hover {
+  background-color: #f29784 !important;
+  border-top-color: #ed7056 !important;
+  border-bottom-color: #ed7056 !important;
+}
+
+.c-tabs__tab {
+  border-color: #f29784 !important;
+  border-bottom-color: #bdc4c9 !important;
+}
+
+.blue {color: #ed7056 !important}
+button {box-shadow: none !important}
+a:active {color: #002a96 !important}
+a:visited {color: #d1593f !important}
+.c-banner {background-color: #c6c6c6 !important}
+button.button-as-link {color: #dbdbdb !important}
+.browse-file-row {border-color: #9b9b9b !important}
+#sidebar {background-color: transparent !important}
+.link-img {background-color: transparent !important}
+#ha-container>.ha {border-color: #002a96 !important}
+div[role="button"] {border: solid 1px rgba(0,0,0,0.2)}
+#ha-container>.ha a {border-color: #002a96 !important}
+.db-modal-x {background-color: transparent !important}
+.trash-row:hover {background-color: #f29784 !important}
+.c-column-header {background-color: #d7d6d5 !important}
+.calendar .selected {background-color: #ed7056 !important}
+.calendar .date:hover {background-color: #f29784 !important}
+.drk_settings_global_msg.visible {display: block !important}
+#page-footer button {background-color: transparent !important}
+.bubble-menu-item:hover {background-color: #ed7056 !important}
+.button-primary:disabled {background-color: #ed7056 !important}
+.vjs-big-play-button {background-color: transparent !important}
+a, .pane-btns, .tree-view__item-label {color: #9a2810 !important}
+button.header-nav-link {background-color: transparent !important}
+.react-title-bar__close {background-color: transparent !important}
+.global-actions__button {background-color: transparent !important}
+.c-column-header__button {background-color: transparent !important}
+.context-menu-item--selected {background-color: #ed7056 !important}
+.account-dropdown ul a:hover {background-color: #ed7056 !important}
+.contacts-tokenizer-input {background-color: transparent !important}
+.paging-list .selected .option-secondary {color: #7f7d7b !important}
+.c-tabs__tab.c-tabs__tab--selected {border-color: #bdc4c9 !important}
+.breadcrumb-overflow-button {background-color: transparent !important}
+.search-bar .search-bar__button {background-color: #128fa9 !important}
+#browse-box header>#browse-header {background-color: #d7d6d5 !important}
+.comment-input-buttons button {background-color: transparent !important}
+.unified-share-modal__settings {background-color: transparent !important}
+.feature-table__table-column--blue {background-color: #f29784 !important}
+button.button-as-link .link-img {background-color: transparent !important}
+.react-file-viewer-dropdown li a:hover {background-color: #ed7056 !important}
+.create-edit-form-destination-change {background-color: transparent !important}
+.search-bar .search-bar__text-input {background-color: transparent !important}
+.preview-toolbar-container .preview-toolbar-overlay {background-color: #ed7056 !important}
+.unified-share-modal button.c-borderless-button {background-color: transparent !important}
+button span, input[type="submit"] span, input[type="button"] span {color: #050300 !important}
+form, #page-footer, #prompt-silo .ha, #ha-container .ha, #full_admin_page .ha {background: #ddd !important}
+table.settings-table .sprite-button, .content-link-sync-modal__close>button {background-color: transparent !important}
+#page-header, #trash-header, #trash-sub-header, #trash-table-header, #events-sub-header, #events-header {background-color: #d7d6d5 !important}
+
+::-moz-scrollbar {background: #28292a}
+::-webkit-scrollbar {background: #28292a}
+::-moz-scrollbar-track {background: #343637}
+::-webkit-scrollbar-track {background: #343637}
+*:-moz-full-screen {-webkit-filter: invert(100%) !important}
+*:-webkit-full-screen {-webkit-filter: invert(100%) !important}
+
+::-moz-scrollbar-thumb {
+  background: #4d4e4f;
+  border-left: 1px solid #343637;
+  border-right: 1px solid #343637;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d4e4f;
+  border-left: 1px solid #343637;
+  border-right: 1px solid #343637;
+}
+
+.s_web_x, #select-btn[disabled]:hover, .button-primary:disabled:hover, .bar-graph-legend.bar-graph-free,
+.c-btn--primary.u-mar-left-s:hover, .u-l-fr .c-btn:hover, .content-link-sync-modal__add-to-dropbox-button:hover,
+.dbmodal-button.c-btn--primary:hover, .unified-share-modal__share-send:hover, .confirm-button.c-btn--primary:hover {
+  filter: invert(0) !important;
+  -webkit-filter: invert(0) !important;
+}

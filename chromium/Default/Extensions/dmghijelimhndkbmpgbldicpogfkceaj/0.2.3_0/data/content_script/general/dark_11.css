@@ -1,0 +1,310 @@
+/* 
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/31267/global-dark-style-changes-everything-to-dark
+  [2] https://userstyles.org/styles/23516/midnight-surfing-global-dark-style
+  [3] https://userstyles.org/styles/131303/global-black-theme
+  [4] https://userstyles.org/styles/104936/global-style-pitch-black
+  [5] https://userstyles.org/styles/112107/global-black-for-amoled-displays
+  [6] https://userstyles.org/styles/135297/global-dark-style-everything-to-dark-2016
+  [7] https://userstyles.org/styles/106787/black-coffee-dark-global-style-for-night
+*/
+
+* {
+  color: #999 !important;
+  border-color: #444 !important;
+  border-top-color: #444 !important;
+  border-left-color: #444 !important;
+  border-right-color: #444 !important;
+  border-bottom-color: #444 !important;
+  background-color: transparent !important;
+}
+
+body {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+nav, div, .menu, embed, nav ul, iframe, header, footer, .tooltip, .hovercard, [id*="menu"], [id*="nav"] ul, [class="title"], label [onclick], div[role="menu"], [class*="popup"], [class*="nav"] ul, ul[class*="menu"], div[role="dialog"], [class*="dropdown"], span[class*="script"], ul[style*="display:"], ul[style*="visibility:"] ul, a[onclick][style*="display"], div[style*="-moz-user-select"], div[style*="z-index:"][style*="left:"][style*="visible"], div[style*="position:"][style*="left:"][style*="visible"] {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+input, select, button, a.button, a.submit, a.TabLink, [role="button"], .install[onclick] {
+  color: #BBB !important;
+  appearance: none !important;
+  -moz-appearance: none !important;
+  border: 1px solid #333 !important;
+  background-image: none !important;
+  -webkit-appearance: none !important;
+  background-color: #060606 !important;
+}
+
+a[href="javascript:;"], a[id*="button"]:not(:empty), a[id*="Button"]:not(:empty), div[class*="button"][onclick], a[class*="button"]:not(:empty) {
+  color: #BBB !important;
+  border-color: #333 !important;
+  background-color: #060606 !important;
+}
+
+a[id*="button"]:hover, a[href="javascript:;"]:hover, a[id*="Button"]:not(:empty):hover, div[class*="button"][onclick]:hover, a[class*="button"]:not(:empty):hover {
+  color: #FFF !important;
+  background-color: #151515 !important;
+}
+
+input:hover, select:hover, button:hover, a.button:hover, a.submit:hover, a.TabLink:hover, a.BigButton:hover, [role="button"]:hover, input[type="radio"]:hover, input[type="button"]:hover, input[type="checkbox"]:hover {
+  border: 1px solid #555 !important;
+}
+
+input[type="checkbox"], input[type="checkbox"]:focus {
+  color: #DDD !important;
+  border: 1px solid #333 !important;
+  background-color: #111 !important;
+}
+
+input[type="radio"], input[type="radio"]:focus {
+  color: #DDD !important;
+  border: 1px solid #333 !important;
+  background-color: #111 !important;
+}
+
+button:active, a.button:active, a.submit:active, a.TabLink:active, .Active .TabLink, input[type="submit"]:active, input[type="button"]:active, a[class*="button"]:not(:empty):active {
+  color: #FFF !important;
+  background-color: #292929 !important;
+}
+
+textarea {
+  -moz-appearance: none !important;
+  border: 1px solid #000 !important;
+  -webkit-appearance: none !important;
+  background-color: rgba(0, 0, 0, .3) !important;
+}
+
+textarea:focus {
+  border-color: #222 !important;
+  background-color: rgba(0, 0, 0, .5) !important;
+}
+
+option {
+  color: #666 !important;
+  -moz-appearance: none !important;
+  background-color: none !important;
+  -webkit-appearance: none !important;
+}
+
+option:not([disabled]):hover, option:focus, option:checked {
+  color: #DDD !important;
+  background-color: linear-gradient(#333, #292929) !important;
+}
+
+scrollbarbutton {
+  border: none !important;
+  background-color: transparent;
+  -moz-appearance: none !important;
+}
+
+thumb {
+  -moz-appearance: none !important;
+  background-color: #999 !important;
+  border: 1px solid transparent !important;
+  background-clip: padding-box !important;
+}
+
+scrollbar {
+  -moz-appearance: none !important;
+  background-color: transparent !important;
+}
+
+menupopup, popup, popup>menu>menupopup, menupopup>menu>menupopup {
+  padding: 2px 0 !important;
+  -moz-appearance: none !important;
+  border: 1px solid #000 !important;
+  background-color: rgba(15, 15, 15, .9) !important;
+}
+
+menupopup menuseparator {
+  padding: 0 !important;
+  border-top: none !important;
+  -moz-appearance: none !important;
+  margin: 2px 0 2px -3px !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+menupopup menuitem {
+  -moz-appearance: none !important;
+  background-color: transparent !important;
+}
+
+tooltip {
+  color: #CCC !important;
+  -moz-appearance: none !important;
+  border: 1px solid #555 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+scrollbar[orient="vertical"] {
+  min-width: 12px !important;
+  max-width: 12px !important;
+}
+
+scrollbar[orient="horizontal"] {
+  min-height: 12px !important;
+  max-height: 12px !important;
+}
+
+scrollbar[orient="vertical"] thumb {
+  min-width: 12px !important;
+  max-width: 12px !important;
+  min-height: 14px !important;
+}
+
+scrollbar[orient="horizontal"] thumb {
+  min-width: 14px !important;
+  min-height: 12px !important;
+  max-height: 12px !important;
+}
+
+*:before, *:after {
+  border-color: #444 !important;
+  background-color: transparent !important;
+}
+
+::selection {
+  color: #000 !important;
+  background-color: #377 !important;
+}
+
+::-moz-selection {
+  color: #000 !important;
+  background-color: #377 !important;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  min-width: 10px;
+  min-height: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, strong, a.active, .selected, [href="#"], a.active *, .selected *, a.highlight, a.highlight *, [id*="header"], [id*="headline"], [class*="header"], [class*="headline"], [class*="header"] td {
+  color: #DDD !important;
+}
+
+a {
+  transition: 100ms ease color;
+  -moz-transition: 100ms ease color;
+  -webkit-transition: 100ms ease color;
+}
+
+a, a * {
+  color: #75a5c5 !important;
+  text-decoration: none !important;
+}
+
+a:hover, a:hover *, .link:hover, .link:hover *, a:visited:hover, a:visited:hover *, div[onclick]:hover, span[onclick]:hover, [role="link"]:hover, [role="link"]:hover *, [role="menuitem"]:hover, [role="button"]:hover *, [role="menuitem"]:hover * {
+  color: #bf7d7d !important;
+}
+
+img {
+  opacity: 0.8 !important
+}
+
+:focus {
+  outline: none !important
+}
+
+menupopup * {
+  color: #777 !important
+}
+
+select button {
+  min-height: 8px !important
+}
+
+li, ul {
+  background-image: none !important
+}
+
+input *:hover * {
+  color: #bf7d7d !important
+}
+
+img:hover, a:hover img {
+  opacity: 1 !important
+}
+
+textarea, textarea * {
+  color: #C8C8C8 !important
+}
+
+a:visited, a:visited * {
+  color: #607069 !important
+}
+
+pre, dl {
+  background-color: rgba(5, 5, 5, .5) !important
+}
+
+menupopup menuitem:hover * {
+  color: #bf7d7d !important
+}
+
+html, table {
+  background-color: rgba(0, 0, 0, 0.9) !important
+}
+
+textarea:focus, textarea:focus>* {
+  text-shadow: none !important
+}
+
+textarea:hover, textarea:focus:hover {
+  border-color: #333 !important
+}
+
+select input[type="button"], select button {
+  border: none !important
+}
+
+browser[type="content-primary"] {
+  background-color: #151515 !important
+}
+
+scrollbarbutton:hover, thumb:active, thumb:hover {
+  opacity: 0.7 !important
+}
+
+@-moz-document url(about:blank) {
+  body {
+    background-color: #000 !important
+  }
+}
+
+@-moz-document url(about:newtab) {
+  body {
+    background-color: #000 !important
+  }
+}
+
+input *, select *, button *, a.button *, a.submit * {
+  color: #BBB !important
+}
+
+menupopup menuitem:hover, menuitem[_moz-menuactive="true"] {
+  background-color: #333 !important
+}
+
+[class*="error"], [class*="alert"], code, span[onclick], div[onclick] {
+  color: #900 !important
+}
+
+[id*="overlay"], [id*="lightbox"], blockquote {
+  background-color: rgba(35, 35, 35, .9) !important
+}
+
+div[style="display: block;"], div[role="navigation"] {
+  background-color: rgba(0, 0, 0, .5) !important
+}
+
+table>tbody>tr:nth-child(even), table>tbody>tr>td:nth-child(even) {
+  background-color: rgba(0, 0, 0, .2) !important
+}
+
+a h1, a h2, a h3, a h4, a h5, a h6, h1 a, h2 a, h3 a, a strong, a[id*="headline"], a[class*="headline"], a[id*="header"], a[class*="header"] {
+  text-decoration: underline !important
+}

@@ -1,0 +1,112 @@
+/*
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/104936/global-style-pitch-black
+*/
+
+html, html[class], html[id], body, body[class], body[id], input {
+  background: #0c0c0c !important;
+}
+
+div:last-child, :not(span), :not(a) {
+  border-color: #4AF !important;
+  background-color: #0c0c0c !important;
+}
+
+:link, :visited, a, h1, h2, h3, h4, h5, h6, p, img, video, div, span, img~*, img *,
+video *, video~*>*, div[style*="text-align:"] *, button, button *, div[style*="text-align:"],
+[style*="background-image:"]~*, div[style*="background-image:"] *, [style*=".gif"], [style*=".jpg"], [style*=".png"] {
+  background-color: transparent !important;
+}
+
+a, a[class] {
+  color: #9CF !important;
+}
+
+a:hover {
+  color: #39F !important;
+}
+
+li {
+  color: #8BF !important;
+}
+
+tr {
+  color: #F00 !important;
+}
+
+cite {
+  color: #268 !important;
+}
+
+input {
+  color: #5BF !important;
+}
+
+em {
+  color: #DEF !important;
+}
+
+ul {
+  color: #F00 !important;
+}
+
+nobr {
+  color: #F00 !important;
+}
+
+div {
+  color: #BDF !important;
+}
+
+strong {
+  color: #9CC !important;
+}
+
+s {
+  color: #F00 !important;
+}
+
+h1 {
+  color: #ABC !important;
+}
+
+h2 {
+  color: #DEF !important;
+}
+
+h3 {
+  color: #CFF !important;
+}
+
+* {
+  color: #7CF !important;
+}
+
+b {
+  color: #7AF !important;
+}
+
+a, span, p, div, textarea, i, td {
+  color: #ACE !important;
+  text-shadow: -1px -1px #0c0c0c, 1px -1px #0c0c0c, -1px 1px #0c0c0c, 1px 1px #0c0c0c !important;
+}
+
+::-moz-selection {
+  color: #0FF !important;
+  background-color: #333 !important;
+}
+
+::selection {
+  color: #0FF !important;
+  background-color: #333 !important;
+}
+
+::-webkit-selection {
+  color: #0FF !important;
+  background-color: #333 !important;
+}
+
+a>span.Sprite16 {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}

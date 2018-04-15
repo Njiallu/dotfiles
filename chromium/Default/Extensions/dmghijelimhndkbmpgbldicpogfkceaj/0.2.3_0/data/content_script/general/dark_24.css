@@ -1,0 +1,13 @@
+* {
+  color: #c3c3c3 !important;
+  background: #303030 !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.65) !important;
+}
+
+:link, :link * {color: #55C8FF !important}
+:visited, :visited * {color: #FFE155 !important}
+
+::selection {
+  color: #0DD6EF !important;
+  background: #FF5573 !important;
+}

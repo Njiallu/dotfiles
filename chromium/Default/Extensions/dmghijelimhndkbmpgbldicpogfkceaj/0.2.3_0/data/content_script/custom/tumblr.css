@@ -1,0 +1,105 @@
+/*
+  Parts of this code is inspired from the following:
+  [1] https://userstyles.org/styles/84054/darker-tumblr
+  [2] https://chrome.google.com/webstore/detail/dark-tumblr/nmbkbnpbikhjkgaekilfkdjalffkhbee
+*/
+
+html, body {color: #bbb !important}
+body {background: #111111 !important}
+
+.identity .controls_section.user_list li .follow_list_item_blog:before {
+  border-right: 5px solid #111111 !important;
+  background-image: linear-gradient(to right, rgba(54, 70, 93, 0), #111111) !important;
+}
+
+.identity .controls_section.user_list li .follow_list_item_blog:before {
+  border-right: 5px solid #111111 !important;
+  background-image: linear-gradient(to right, rgba(54, 70, 93, 0), #111111) !important;
+}
+
+.post .post-source-footer {
+  color: #999999 !important;
+  background: #000 !important;
+}
+
+input.text_field {
+  color: white !important;
+  background: #111 !important;
+  border: solid 1px #222 !important;
+}
+
+.post-form-modal-content {
+  padding: 50px 1px !important;
+  background-color: #cacaca !important;
+}
+
+.post_control:after,
+.post-form-modal-content,
+.post .post_info .reblog_icon,
+.popover--account-popover .popover .popover_inner {
+  opacity: 1 !important;
+  filter: invert(100%) !important;
+  -webkit-filter: invert(100%) !important;
+}
+
+.chrome.blue {
+  background: #B4B4FA !important;
+  border-color: #B4B4FA !important;
+}
+
+.flat-button.blue {
+  color: #fff;
+  background: #B4B4FA !important;
+  border-color: #B4B4FA !important;
+}
+
+.anchor {
+  opacity: 0 !important;
+  color: white !important;
+  background-color: #000 !important;
+}
+
+::selection {background: #B4B4FA}
+::-moz-selection {background: #B4B4FA}
+.post_body {line-height: 2 !important}
+.chat_line {line-height: 2 !important}
+.identity {background: #323232 !important}
+.compose-button {fill: #6363ae !important}
+.reblog-content {line-height: 2 !important}
+#toaster {background-color: #111 !important}
+.plus-follow-button {color: #B4B4FA !important}
+.toast_float {background-color: #111 !important}
+.post.post_full {background: #323232 !important}
+#toast_float {background-color: #111 !important}
+.nipple {border-left: 8px solid #111 !important}
+.post_answer_length {background: #111 !important}
+.post_avatar {background-color: #2e2e3a !important}
+.left_column {background-color: #212121 !important}
+.right_column {background-color: #111111 !important}
+.sponsored-day-media-section {display: none !important}
+.post_body .note_item {border: 1px solid #111 !important}
+.post_full.is_quote .post_title {color: #B4B4FA !important}
+.post_full .post_tags .post_tag {color: #5A5A5A !important}
+.post_body .note_item {background-color: #000000 !important}
+.reblog-list-item {border-bottom: 1px solid #111 !important}
+.radar .radar_controls {background-color: #464679 !important}
+.post_full.is_link .link-button {background: #000 !important}
+.plus-follow-button:hover {background-color: #555555 !important}
+.post-forms-glass {background-color: rgba(0, 0, 0, .95) !important}
+.l-header-container--refresh {background-color: #111111 !important}
+.ui_peepr_glass {background-color: rgba(23, 23, 23, 0.95) !important}
+.post_answer_form_field:after {border-right: 7px solid #111 !important}
+.popover--inbox-popover .popover-inner {background: #212121 !important}
+.post_answer_form_field:before {border-right: 7px solid #222 !important}
+.ui_dialog_pos, .ui_dialog_lock {background: rgba(0, 0, 0, .7) !important}
+.blog-activity .blog-activity--empty {background-color: #3a3a3a !important}
+.conversation_lines .chat_line:nth-child(even) {background: #000 !important}
+.reblog-list, .reblog-trail--original-post {border-top: 1px solid #111 !important}
+.post_full .post_permalink {border-color: #111111 #111111 transparent transparent !important}
+.l-container.l-container--two-column-dashboard .l-content {background-color: #212121 !important}
+.identity .right_column:after {background: linear-gradient(to bottom, #111111, rgba(54, 70, 93, 0)) !important}
+.post_full .post_tags:after {background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #000 100%) !important}
+.identity .controls_section li:not(.selection_header):not(.selected_blog):hover {background-color: #111111 !important}
+.radar .radar_footer .radar_avatar:before {background-image: linear-gradient(to right, rgba(54, 70, 93, 0), #111111) !important}
+.post.has_source .post_tags.draggable:before {background-image: linear-gradient(to left, rgba(255, 255, 255, 0)0%, #000 100%) !important}
+.rapid-recs-container .rapid-recs {background-image: linear-gradient(to bottom, rgba(54, 70, 93, 0)0%, #111111 15%, #111111 85%, rgba(54, 70, 93, 0)100%) !important}

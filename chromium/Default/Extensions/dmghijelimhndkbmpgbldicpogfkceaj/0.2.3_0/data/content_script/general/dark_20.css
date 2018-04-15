@@ -1,0 +1,51 @@
+html {
+  background-color: #222222 !important;
+}
+
+button, canvas, caption, cite, code, col, colgroup, data, datalist, dd, del, dfn, div, dl,
+body, head, a, abbr, address, area, article, aside, audio, b, base, bdi, bdo, blockquote, br,
+dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr,
+i, iframe, img, input, ins, keygen, label, legend, li, link, main, map, mark, meta, meter, nav,
+noscript, object, ol, optgroup, option, output, p, param, pre, progress, q, rb, rp, rt, rtc, ruby,
+s, samp, script, section, select, small, source, span, strong, sub, sup, table, tbody, td, template,
+textarea, tfoot, th, thead, time, title, tr, track, u, ul, var, video, wbr {
+  color: #c3c3c3 !important;
+  background-color: transparent !important;
+}
+
+button, caption, cite, code, col, colgroup, data, datalist, dd, del, dfn, dl, head, a, abbr,
+address, area, article, audio, b, base, bdi, bdo, blockquote, br,dt, em, embed, fieldset, figcaption,
+figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr,i, input, ins, keygen, label, legend, li, link,
+main, map, mark, meta, meter, nav,noscript, object, ol, optgroup, option, output, p, param, pre, progress,
+q, rb, rp, rt, rtc, ruby,s, samp, script, select, small, source, strong, sub, sup, textarea, time, title, track, u, var, video, wbr {
+  background-image: none !important;
+}
+
+div {
+  background-color: #222222 !important;
+}
+
+img, video, embed {
+  -webkit-filter: brightness(75%) grayscale(15%);
+}
+
+pre, code, textarea {
+  background-color: #1c1c1c !important;
+}
+
+pre *, code * {
+  color: #55bb88 !important;
+}
+
+*:link, *:link * {
+  color: #55c8ff !important;
+}
+
+*:visited, *:visited * {
+  color: #ffe155 !important;
+}
+
+::selection {
+  color: #0dd6ef !important;
+  background-color: #ff5573 !important;
+}

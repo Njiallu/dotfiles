@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Flat-Plat-Bumblebee-dark
+Comment=A Material Design-like theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Flat-Plat-Bumblebee-dark
+MetacityTheme=Flat-Plat-Bumblebee-dark
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

@@ -1,0 +1,150 @@
+set $mod Mod4
+
+font pango:Monaco 8
+floating_modifier $mod
+
+bindsym $mod+Return exec alacritty
+bindsym $mod+q kill
+bindsym $mod+Space exec rofi 
+
+bindsym $mod+l exec lock
+
+# Change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in h/v orientation
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Alt+space focus mode_toggle
+
+# Focus the parent/child container
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1 Browser
+bindsym $mod+2 workspace number 2 Discord
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace Cont
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1 Browser
+bindsym $mod+Shift+2 move container to workspace number 2 Discord
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace Cont
+
+# Screenshot, music, monitors, etc.
+bindsym --release $mod+Shift+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
+bindsym --release $mod+Shift+o exec mpc toggle
+bindsym --release $mod+Shift+l move workspace to output left
+bindsym --release $mod+Shift+r move workspace to output right
+bindsym --release $mod+Shift+m exec ~/scripts/volume_control.py toggle
+
+bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize mode
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+### i3-gaps stuff ###
+
+for_window [class="^.*"] border none
+
+client.focused_inactive #000000 #000000 #000000 #000000 #000000
+client.unfocused        #000000 #000000 #000000 #000000 #000000
+
+gaps inner 30
+gaps outer 0
+
+# Gaps mode
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Execs
+exec --no-startup-id feh --bg-scale $HOME/.local/wallpaper.png
+exec --no-startup-id python3.6 -m pywal -i $HOME/.local/wallpaper.png -a90
+exec --no-startup-id /usr/bin/compton --config $HOME/.config/compton/config
+
+exec_always $HOME/.config/polybar/launch.sh
+
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id dunst
+
+assign [class="^XTerm$"] Cont

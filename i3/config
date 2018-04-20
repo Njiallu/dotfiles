@@ -1,13 +1,16 @@
+# vim: set syntax=config
 set $mod Mod4
 
-font pango:Monaco 8
+font pango:DejaVuSansMono Nerd Font Mono 16
 floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
-bindsym $mod+Space exec rofi 
+bindsym $mod+space exec rofi -show drun
+bindsym $mod+Tab exec rofi -show window
+bindsym Mod1+Tab exec rofi -show combi
 
-bindsym $mod+l exec lock
+bindsym $mod+l exec i3lock
 
 # Change focus
 bindsym $mod+Left focus left
@@ -39,29 +42,42 @@ bindsym $mod+Alt+space focus mode_toggle
 bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
-# Switch to workspace
-bindsym $mod+1 workspace number 1 Browser
-bindsym $mod+2 workspace number 2 Discord
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace Cont
+#::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
 
-# Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1 Browser
-bindsym $mod+Shift+2 move container to workspace number 2 Discord
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace Cont
+set $WS1   1: Shell
+set $WS2   2: Web
+set $WS3   3: File
+set $WS4   4: Code
+set $WS5   5: Media
+set $WS6   6: Chat
+set $WS7   7: Doc
+set $WS8   8: Down
+set $WS9   9: Conf
+set $WS0   10: Games
+
+#       Switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+#       Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0
 
 # Screenshot, music, monitors, etc.
 bindsym --release $mod+Shift+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
@@ -71,7 +87,7 @@ bindsym --release $mod+Shift+r move workspace to output right
 bindsym --release $mod+Shift+m exec ~/scripts/volume_control.py toggle
 
 bindsym $mod+Shift+c reload
-# bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize mode
@@ -100,8 +116,8 @@ gaps outer 0
 
 # Gaps mode
 set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift [+|-|0] (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift [+|-|0] (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
@@ -137,14 +153,33 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Execs
-exec --no-startup-id feh --bg-scale $HOME/.local/wallpaper.png
-exec --no-startup-id python3.6 -m pywal -i $HOME/.local/wallpaper.png -a90
 exec --no-startup-id /usr/bin/compton --config $HOME/.config/compton/config
+exec --no-startup-id /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 
-exec_always $HOME/.config/polybar/launch.sh
+# Flash focus such nice wallpaper
+exec_always --no-startup-id /usr/bin/flashfocus
+exec_always --no-startup-id /usr/bin/feh --bg-center ~/Pictures/mountains.png
 
-exec_always --no-startup-id nm-applet
+# Xinput
+# Polybar
+exec_always --no-startup-id polybar -r example
+# Compton
+exec_always --no-startup-id "killall -q compton; compton"
+# Dunst
 exec_always --no-startup-id dunst
-
-assign [class="^XTerm$"] Cont

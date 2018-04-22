@@ -19,6 +19,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/ctags.vim'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'chrisbra/Colorizer'
 "			Useful
 Plug 'mhinz/vim-startify'
 Plug 'tmux-plugins/vim-tmux'

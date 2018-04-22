@@ -1,16 +1,34 @@
-# vim: set syntax=config
+#::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
 set $mod Mod4
 
 font pango:DejaVuSansMono Nerd Font Mono 16
 floating_modifier $mod
 
-bindsym $mod+Return exec alacritty
-bindsym $mod+q kill
-bindsym $mod+space exec rofi -show drun
-bindsym $mod+Tab exec rofi -show window
-bindsym Mod1+Tab exec rofi -show combi
+set $resize 'Resize: Arrows to resize'
 
-bindsym $mod+l exec i3lock
+set $mode_gaps 'Gaps: (o) outer, (i) inner'
+set $mode_gaps_outer 'Outer: [Shift +] + | - | 0'
+set $mode_gaps_inner 'Inner: [Shift +] + | - | 0'
+
+for_window [class="^.*"] border none
+
+gaps inner 20
+gaps outer 0
+
+client.focused #fe8019af #fe8019af #282828 #282828
+client.focused_inactive #1d2021 #1d2021 #928374 #282828
+client.unfocused #282828 #282828 #fabd2f #fabd2f
+client.urgent #fb4934 #fb4834 #ebdbb2 #282828
+
+#::::::::::::::::::::::::::::: Key Bindings :::::::::::::::::::::::::::::::::::#
+
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+q kill
+bindsym $mod+w kill
+bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym Mod1+Tab exec --no-startup-id rofi -show combi
+bindsym --release $mod+l exec --no-startup-id i3lock
 
 # Change focus
 bindsym $mod+Left focus left
@@ -28,11 +46,14 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 bindsym $mod+v split v
 
-bindsym $mod+f fullscreen toggle
+# Change mode
+bindsym $mod+r mode "$resize"
+bindsym $mod+Shift+g mode "$mode_gaps"
 
-# Change container layout (stacked, tabbed, toggle split)
+# Change container layout (fullscreen, stacked, tabbed, toggle split)
+bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+space floating toggle
@@ -40,20 +61,39 @@ bindsym $mod+Alt+space focus mode_toggle
 
 # Focus the parent/child container
 bindsym $mod+a focus parent
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
+
+# Pulse Audio controls
+bindsym --release XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1+ 5%+
+bindsym --release XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 1+ 5%-
+bindsym --release XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
+
+# Sreen brightness controls
+bindsym --release XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym --release XF86MonBrightnessDown exec xbacklight -dec 10
+
+# Media player controls
+bindsym --release XF86AudioPlay exec playerctl play
+bindsym --release XF86AudioPause exec playerctl pause
+bindsym --release XF86AudioNext exec playerctl next
+bindsym --release XF86AudioPrev exec playerctl previous
+
+bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -m 'Exit i3 and X?' -b 'Yes' 'i3-msg exit'"
 
 #::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
 
-set $WS1   1: Shell
-set $WS2   2: Web
-set $WS3   3: File
-set $WS4   4: Code
-set $WS5   5: Media
-set $WS6   6: Chat
-set $WS7   7: Doc
-set $WS8   8: Down
-set $WS9   9: Conf
-set $WS0   10: Games
+set $WS1   1
+set $WS2   2
+set $WS3   3
+set $WS4   4
+set $WS5   5
+set $WS6   6
+set $WS7   7
+set $WS8   8
+set $WS9   9
+set $WS0   10
 
 #       Switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -79,107 +119,72 @@ bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS0
 
-# Screenshot, music, monitors, etc.
+#       Screenshot, music, monitors, etc.
 bindsym --release $mod+Shift+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
 bindsym --release $mod+Shift+o exec mpc toggle
 bindsym --release $mod+Shift+l move workspace to output left
 bindsym --release $mod+Shift+r move workspace to output right
-bindsym --release $mod+Shift+m exec ~/scripts/volume_control.py toggle
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#:::::::::::::::::::::::::: Customize i3 modes ::::::::::::::::::::::::::::::::#
 
-# Resize mode
-mode "resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+#		Resize mode
+mode "$resize" {
+		bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-
-### i3-gaps stuff ###
-
-for_window [class="^.*"] border none
-
-client.focused_inactive #000000 #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000 #000000
-
-gaps inner 30
-gaps outer 0
-
-# Gaps mode
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift [+|-|0] (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift [+|-|0] (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
+#		Gaps mode
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+		bindsym o      mode "$mode_gaps_outer"
+		bindsym i      mode "$mode_gaps_inner"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+		bindsym plus  gaps inner current plus 5
+		bindsym minus gaps inner current minus 5
+		bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+		bindsym Shift+plus  gaps inner all plus 5
+		bindsym Shift+minus gaps inner all minus 5
+		bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+		bindsym b      mode "$mode_gaps"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+		bindsym plus  gaps outer current plus 5
+		bindsym minus gaps outer current minus 5
+		bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+		bindsym Shift+plus  gaps outer all plus 5
+		bindsym Shift+minus gaps outer all minus 5
+		bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+		bindsym b      mode "$mode_gaps"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 }
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#::::::::::::::::::::::::::::: Various Exec :::::::::::::::::::::::::::::::::::#
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# Execs
-exec --no-startup-id /usr/bin/compton --config $HOME/.config/compton/config
+#  Xinput
 exec --no-startup-id /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-
-# Flash focus such nice wallpaper
-exec_always --no-startup-id /usr/bin/flashfocus
-exec_always --no-startup-id /usr/bin/feh --bg-center ~/Pictures/mountains.png
-
-# Xinput
-# Polybar
-exec_always --no-startup-id polybar -r example
-# Compton
+#  Flash focus
+exec_always --no-startup-id "killall -q flashfocus; flashfocus"
+#  Such nice wallpaper
+exec_always --no-startup-id "feh --bg-center ~/Pictures/mountains.png"
+#  Polybar
+exec_always --no-startup-id "killall -a polybar; polybar -r top"
+#  Compton
 exec_always --no-startup-id "killall -q compton; compton"
-# Dunst
-exec_always --no-startup-id dunst
+#  Dunst
+exec_always --no-startup-id "killall -q dunst; dunst"

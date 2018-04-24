@@ -69,8 +69,8 @@ bindsym --release XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset
 bindsym --release XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
 
 # Sreen brightness controls
-bindsym --release XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym --release XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym --release XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Media player controls
 bindsym --release XF86AudioPlay exec playerctl play
@@ -183,7 +183,7 @@ exec_always --no-startup-id "killall -q flashfocus; flashfocus"
 #  Such nice wallpaper
 exec_always --no-startup-id "feh --bg-center ~/Pictures/mountains.png"
 #  Polybar
-exec_always --no-startup-id "killall -a polybar; polybar -r top"
+exec_always --no-startup-id "killall -a polybar; polybar -rq top"
 #  Compton
 exec_always --no-startup-id "killall -q compton; compton"
 #  Dunst

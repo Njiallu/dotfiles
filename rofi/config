@@ -1,5 +1,4 @@
 rofi.modi: window,run,drun,combi
-rofi.opacity: 85
 rofi.width: 50
 rofi.lines: 12
 rofi.columns: 1

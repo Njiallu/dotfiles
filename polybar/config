@@ -15,57 +15,59 @@ compositing-underline  = over
 compositing-border     = over
 
 [colors]
-red            = #fb4934
-red-alt        = #cc241d
-orange         = #fe8019
-orange-alt     = #d65d0e
-yellow         = #fabd2f
-yellow-alt     = #d79921
-green          = #b8bb26
-green-alt      = #98971a
-aqua           = #8ec07c
-aqua-alt       = #689d6a
-blue           = #83a598
-blue-alt       = #458588
-purple         = #d3869b
-purple-alt     = #b16286
+red                    = #fb4934
+red-alt                = #cc241d
+orange                 = #fe8019
+orange-alt             = #d65d0e
+yellow                 = #fabd2f
+yellow-alt             = #d79921
+green                  = #b8bb26
+green-alt              = #98971a
+aqua                   = #8ec07c
+aqua-alt               = #689d6a
+blue                   = #83a598
+blue-alt               = #458588
+purple                 = #d3869b
+purple-alt             = #b16286
 
-background     = #4f282828
-background-alt = #af3c3836
+background             = #282828
+background_t           = #4f282828
+background-alt         = #3c3836
+background-alt_t       = #af3c3836
 
-foreground     = #ebdbb2
-foreground-alt = #928374
+foreground             = #ebdbb2
+foreground-alt         = #928374
 
-primary        = ${self.orange}
-secondary      = ${self.yellow}
-alert          = ${self.red}
+primary                = ${self.orange}
+secondary              = ${self.yellow}
+alert                  = ${self.red}
 
 [bar/top]
-monitor    = ${env:MONITOR:eDP1}
-background = ${colors.background}
-foreground = ${colors.foreground}
+monitor                = ${env:MONITOR:}
+background             = ${colors.background}
+foreground             = ${colors.foreground}
 
-width               = 100%
-height              = 30
-radius              = 0
-fixed-center        = true
+width                  = 100%
+height                 = 24
+radius                 = 0
+fixed-center           = true
 
-padding-left        = 1.05%
-padding-right       = 1.05%
-module-margin-left  = 1
-module-margin-right = 0
+padding-left           = 1.05%
+padding-right          = 1.05%
+module-margin-left     = 1
+module-margin-right    = 0
 
-border-size         = 0
-border-color        = #00000000
-line-size           = 1
-line-color          = #2fffffff
+border-size            = 0
+border-color           = #00000000
+line-size              = 1
+line-color             = #2fffffff
 
-font-0 = "SauceCodePro Nerd Font:pixelsize=14;1"
+font-0 = "SauceCodePro Nerd Font:pixelsize=12;1"
 
 ; Modules positions
-modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
-modules-right       = pulseaudio memory cpu wlan battery
+modules-left           = powermenu i3
+modules-center         = xkeyboard date xbacklight
+modules-right          = pulseaudio memory cpu wlan battery
 
 ; Tray
 tray-position       = none
@@ -86,17 +88,17 @@ cursor-scroll       = ns-resize
 type = internal/i3
 
 ws-icon-default = "ﭜ"
-ws-icon-0 = "1;"
-ws-icon-3 = "2;"
-ws-icon-1 = "3;"
-ws-icon-2 = "4;"
-ws-icon-4 = "5;"
+ws-icon-0 = "10;"
+ws-icon-1 = "1;"
+ws-icon-2 = "2;"
+ws-icon-3 = "3;"
+ws-icon-4 = "4;"
 
 format = <label-state> <label-mode>
 
-;pin-workspaces = true
+pin-workspaces = true
 ;wsname-maxlen = 1
-;index-sort = true
+;index-sort = false
 
 label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
@@ -343,41 +345,72 @@ animation-charging-framerate = 200
 [module/powermenu]
 type = custom/menu
 
-label-open = "  "
-label-close = "  "
-label-separator = " | "
+label-open = "  "
+label-close-background = ${colors.background-alt}
+label-close-underline = ${colors.foreground-alt}
+label-close = ${self.label-open}
+label-separator = " "
 label-separator-background = ${colors.background}
 label-separator-foreground = ${colors.primary}
 
-menu-0-0 = " Logout"
+menu-0-0 = " ﬓ "
 menu-0-0-foreground = ${colors.foreground}
-menu-0-0-exec = menu-open-1
-menu-0-1 = "痢 Reboot"
-menu-0-1-foreground = ${colors.secondary}
+menu-0-0-underline = ${colors.foreground-alt}
+menu-0-0-exec = rofi -show drun
+menu-0-1 = "  "
+menu-0-1-foreground = ${colors.foreground}
+menu-0-1-underline = ${colors.foreground-alt}
 menu-0-1-exec = menu-open-2
-menu-0-2 = "⏼ Power off"
-menu-0-2-foreground = ${colors.primary}
+menu-0-2 = "  "
+menu-0-2-foreground = ${colors.foreground}
+menu-0-2-underline = ${colors.foreground-alt}
 menu-0-2-exec = menu-open-3
+menu-0-3 = " 鈴 "
+menu-0-3-foreground = ${colors.green}
+menu-0-3-underline = ${colors.foreground-alt}
+menu-0-3-exec = menu-open-1
+menu-0-4 = " ﰇ "
+menu-0-4-foreground = ${colors.secondary}
+menu-0-4-underline = ${colors.foreground-alt}
+menu-0-4-exec = menu-open-4
+menu-0-5 = " ⏼ "
+menu-0-5-foreground = ${colors.primary}
+menu-0-5-underline = ${colors.foreground-alt}
+menu-0-5-exec = menu-open-5
 
-menu-1-0 = " Logout"
+menu-1-0 = "鈴 Sleep"
 menu-1-0-foreground = ${colors.alert}
-menu-1-0-exec = i3-msg -t command exit
+menu-1-0-exec = i3lock; systemctl suspend
 menu-1-1 = " Cancel"
 menu-1-1-foreground = ${colors.foreground}
 menu-1-1-exec = menu-open-0
 
-menu-2-0 = "痢 Reboot"
+menu-2-0 = " Lock"
 menu-2-0-foreground = ${colors.alert}
-menu-2-0-exec = reboot
+menu-2-0-exec = i3lock
 menu-2-1 = " Cancel"
 menu-2-1-foreground = ${colors.foreground}
 menu-2-1-exec = menu-open-0
 
-menu-3-0 = "⏼ Power off"
+menu-3-0 = " Logout"
 menu-3-0-foreground = ${colors.alert}
-menu-3-0-exec = poweroff
+menu-3-0-exec = i3-msg -t command exit
 menu-3-1 = " Cancel"
 menu-3-1-foreground = ${colors.foreground}
 menu-3-1-exec = menu-open-0
+
+menu-4-0 = "痢 Reboot"
+menu-4-0-foreground = ${colors.alert}
+menu-4-0-exec = reboot
+menu-4-1 = " Cancel"
+menu-4-1-foreground = ${colors.foreground}
+menu-4-1-exec = menu-open-0
+
+menu-5-0 = "⏼ Power off"
+menu-5-0-foreground = ${colors.alert}
+menu-5-0-exec = poweroff
+menu-5-1 = " Cancel"
+menu-5-1-foreground = ${colors.foreground}
+menu-5-1-exec = menu-open-0
 
 ; vim:ft=dosini

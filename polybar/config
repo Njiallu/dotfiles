@@ -14,65 +14,283 @@ compositing-overline   = over
 compositing-underline  = over
 compositing-border     = over
 
-[colors]
-red            = #fb4934
-red-alt        = #cc241d
-orange         = #fe8019
-orange-alt     = #d65d0e
-yellow         = #fabd2f
-yellow-alt     = #d79921
-green          = #b8bb26
-green-alt      = #98971a
-aqua           = #8ec07c
-aqua-alt       = #689d6a
-blue           = #83a598
-blue-alt       = #458588
-purple         = #d3869b
-purple-alt     = #b16286
+[colors_gruvbox]
+; Gruvbox colors
+red              = #fb4934
+red_dark         = #cc241d
+orange           = #fe8019
+orange_dark      = #d65d0e
+yellow           = #fabd2f
+yellow_dark      = #d79921
+green            = #b8bb26
+green_dark       = #98971a
+aqua             = #8ec07c
+aqua_dark        = #689d6a
+blue             = #83a598
+blue_dark        = #458588
+purple           = #f043a0
+purple_dark      = #CC1075
 
-background     = #4f282828
-background-alt = #af3c3836
+red_t            = #a5fb4934
+red_dark_t       = #a5cc241d
+orange_t         = #a5fe8019
+orange_dark_t    = #a5d65d0e
+yellow_t         = #a5fabd2f
+yellow_dark_t    = #a5d79921
+green_t          = #a5b8bb26
+green_dark_t     = #a598971a
+aqua_t           = #a58ec07c
+aqua_dark_t      = #a5689d6a
+blue_t           = #a583a598
+blue_dark_t      = #a5458588
+purple_t         = #a5d3869b
+purple_dark_t    = #a5b16286
 
-foreground     = #ebdbb2
-foreground-alt = #928374
+background       = #282828
+background_alt   = #3c3836
+background_t     = #a5282828
+background_alt_t = #a53c3836
 
-primary        = ${self.orange}
-secondary      = ${self.yellow}
-alert          = ${self.red}
+foreground       = #ebdbb2
+foreground_alt   = #928374
+foreground_t     = #a5ebdbb2
+foreground_alt_t = #a5928374
 
-[bar/top]
-monitor    = ${env:MONITOR:eDP1}
-background = ${colors.background}
-foreground = ${colors.foreground}
+primary          = ${self.orange}
+primary_alt      = ${self.orange_dark}
+accent_1         = ${self.red}
+accent_1_alt     = ${self.red_dark}
+accent_2         = ${self.yellow}
+accent_2_alt     = ${self.yellow_dark}
+primary_t        = ${self.orange_t}
+primary_alt_t    = ${self.orange_dark_t}
+accent_1_t       = ${self.red_t}
+accent_1_alt_t   = ${self.red_dark_t}
+accent_2_t       = ${self.yellow_t}
+accent_2_alt_t   = ${self.yellow_dark_t}
+
+success          = ${self.blue}
+info             = ${self.yellow}
+warning          = ${self.orange}
+failure          = ${self.red}
+success_t        = ${self.blue_t}
+info_t           = ${self.yellow_t}
+warning_t        = ${self.orange_t}
+failure_t        = ${self.red_t}
+
+none             = #00000000
+
+[colors_laserbox]
+; Laserbox colors
+red              = #fb4934
+red_dark         = #cc241d
+orange           = #fe8019
+orange_dark      = #d65d0e
+yellow           = #fabd2f
+yellow_dark      = #d79921
+green            = #b8bb26
+green_dark       = #98971a
+aqua             = #7fffd4
+aqua_dark        = #8ec07c
+blue             = #83a598
+blue_dark        = #458588
+purple           = #f043a0
+purple_dark      = #cc1075
+
+red_t            = #d6fb4934
+red_dark_t       = #d6cc241d
+orange_t         = #d6fe8019
+orange_dark_t    = #d6d65d0e
+yellow_t         = #d6fabd2f
+yellow_dark_t    = #d6d79921
+green_t          = #d6b8bb26
+green_dark_t     = #d698971a
+aqua_t           = #d67fffd4
+aqua_dark_t      = #d68ec07c
+blue_t           = #d683a598
+blue_dark_t      = #d6458588
+purple_t         = #d6f043a0
+purple_dark_t    = #d6cc1075
+
+background       = #282828
+background_alt   = #3c3836
+background_t     = #d6282828
+background_alt_t = #d63c3836
+
+foreground       = #ebdbb2
+foreground_alt   = #928374
+foreground_t     = #afebdbb2
+foreground_alt_t = #af928374
+
+primary          = ${self.purple}
+primary_alt      = ${self.purple_dark}
+accent_1         = ${self.aqua}
+accent_1_alt     = ${self.aqua_dark}
+accent_2         = ${self.orange}
+accent_2_alt     = ${self.orange_dark}
+primary_t        = ${self.purple_t}
+primary_alt_t    = ${self.purple_dark_t}
+accent_1_t       = ${self.aqua_t}
+accent_1_alt_t   = ${self.aqua_dark_t}
+accent_2_t       = ${self.orange_t}
+accent_2_alt_t   = ${self.orange_dark_t}
+
+success          = ${self.aqua}
+info             = ${self.yellow}
+warning          = ${self.orange}
+failure          = ${self.red}
+info_t           = ${self.yellow_t}
+success_t        = ${self.aqua_t}
+warning_t        = ${self.orange_t}
+failure_t        = ${self.red_t}
+
+none             = #00000000
+
+[bar/top_gruvbox_flat]
+inherit             = colors_gruvbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.success}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
 
 width               = 100%
 height              = 30
 radius              = 0
+offset-x            = 0
+offset-y            = 0
 fixed-center        = true
 
 padding-left        = 1.05%
 padding-right       = 1.05%
-module-margin-left  = 1
-module-margin-right = 0
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #000000
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date xbacklight
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = none
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/bottom_gruvbox_flat]
+bottom              = 1
+inherit             = colors_gruvbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.success}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #000000
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date xbacklight
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = none
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/top_gruvbox_flat_transparent]
+inherit             = colors_gruvbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.success}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
 
 border-size         = 0
 border-color        = #00000000
 line-size           = 1
 line-color          = #2fffffff
+underline-size      = 2
 
-font-0 = "SauceCodePro Nerd Font:pixelsize=14;1"
-
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = powermenu i3
 modules-center      = xkeyboard date xbacklight
-modules-right       = pulseaudio memory cpu wlan battery
+modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
 tray-position       = none
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${colors.background}
-tray-foreground     = ${colors.foreground}
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
 
 ; Wm options
 ;wm-restack          = i3
@@ -82,56 +300,577 @@ tray-foreground     = ${colors.foreground}
 cursor-click        = pointer
 cursor-scroll       = ns-resize
 
+[bar/bottom_gruvbox_flat_transparent]
+bottom              = 1
+inherit             = colors_gruvbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.success}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date xbacklight
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = none
+tray-padding        = 3
+tray-transparent    = 40
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/top_gruvbox_flat_alt_transparent]
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = memory cpu pulseaudio
+modules-center      = i3
+modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+
+; Tray
+tray-position       = none
+tray-padding        = 3
+tray-transparent    = 40
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/bottom_gruvbox_flat_alt_transparent]
+bottom              = 1
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = memory cpu pulseaudio
+modules-center      = i3
+modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+
+; Tray
+tray-position       = none
+tray-padding        = 3
+tray-transparent    = 40
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/top_laserbox_flat]
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #000000
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date xbacklight
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = none
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/bottom_laserbox_flat]
+bottom              = 1
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #000000
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date xbacklight
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = none
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/top_laserbox_flat_transparent]
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons:pixelsize=15;1"
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = date
+modules-right       = memory cpu xkeyboard pulseaudio xbacklight wlan battery
+
+; Tray
+tray-position       = none
+tray-maxsize        = 24
+tray-padding        = 3
+tray-transparent    = true
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+radius-bottom       = ${self.height} / 2
+
+[bar/bottom_laserbox_flat_transparent]
+bottom              = 1
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date xbacklight
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = none
+tray-padding        = 3
+tray-transparent    = 40
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/top_laserbox_flat_alt_transparent]
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = memory cpu pulseaudio
+modules-center      = i3
+modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+
+; Tray
+tray-position       = none
+tray-padding        = 3
+tray-transparent    = 40
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[bar/bottom_laserbox_flat_alt_transparent]
+bottom              = 1
+inherit             = colors_laserbox
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_1}
+color_layout        = ${self.primary}
+color_backlight     = ${self.primary}
+color_vol_enabled   = ${self.accent_1}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.success}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = memory cpu pulseaudio
+modules-center      = i3
+modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+
+; Tray
+tray-position       = none
+tray-padding        = 3
+tray-transparent    = 40
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+; Wm options
+;wm-restack          = i3
+;scroll-up           = i3wm-wsnext
+;scroll-down         = i3wm-wsprev
+
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+
 [module/i3]
 type = internal/i3
 
-ws-icon-default = "ﭜ"
-ws-icon-0 = "1;"
-ws-icon-3 = "2;"
-ws-icon-1 = "3;"
-ws-icon-2 = "4;"
-ws-icon-4 = "5;"
+ws-icon-default = ""
+ws-icon-0 = "1;"
+ws-icon-1 = "2;喇"
+ws-icon-2 = "3;"
+ws-icon-3 = "4;"
+ws-icon-4 = "5;寧"
+ws-icon-5 = "6;"
+ws-icon-6 = "7;"
+ws-icon-7 = "8;"
 
 format = <label-state> <label-mode>
 
-;pin-workspaces = true
-;wsname-maxlen = 1
-;index-sort = true
+pin-workspaces = true
+wsname-maxlen = 1
+wrapping-scroll = 0
 
 label-focused = %icon%
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-foreground = ${root.foreground}
+label-focused-background = ${root.background_alt}
+label-focused-underline= ${root.primary}
+label-focused-underline-size = 4
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-foreground = ${colors.foreground-alt}
-label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${root.foreground_alt_t}
+label-unfocused-background = ${root.background}
 label-unfocused-padding = 2
 
-label-urgent = %icon%
-label-urgent-foreground = ${colors.alert}
-label-urgent-background = ${colors.background-alt}
-label-urgent-padding = 2
-
 label-visible = %icon%
-label-visible-foreground = ${colors.foreground}
+label-visible-foreground = ${root.foreground_alt_t}
 label-visible-padding = 2
 
-label-separator = |
+label-urgent = %icon%
+label-urgent-foreground = ${root.accent_1}
+label-urgent-background = ${root.background_alt}
+label-urgent-underline = ${root.accent_1}
+label-urgent-underline-size = 4
+label-urgent-padding = 2
+
+label-separator =
 label-separator-padding = 0
-label-separator-foreground = ${colors.primary}
-label-separator-background = ${colors.background}
+label-separator-foreground = ${root.primary}
+label-separator-background = ${root.background}
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
+blacklist-1 = caps lock
+blacklist-2 = scroll lock
 
-label-layout = %layout%
-label-layout-underline = ${colors.primary}
+format = <label-layout>
+label-layout =  %layout%
+label-layout-underline = ${root.color_layout}
 
-label-indicator-background = ${colors.background}
-label-indicator-underline = ${colors.background-alt}
+label-indicator-background = ${root.background}
+label-indicator-underline = ${root.background_alt}
 
 [module/filesystem]
 type = internal/fs
@@ -142,45 +881,24 @@ mount-1 = /home
 
 label-mounted = " %mountpoint% %percentage_used%%"
 label-unmounted = " %mountpoint%"
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-foreground = ${root.foreground_alt}
 spacing = 1
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = <<
-icon-stop = []
-icon-play = >
-icon-pause = ||
-icon-next = >>
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <ramp>
+format = "<ramp> <label>"
 label = "%percentage%%"
 
-format-underline = ${colors.primary}
+format-underline = ${root.color_backlight}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-ramp-5 = 
-ramp-6 = 
-ramp-7 = 
-ramp-8 = 
-ramp-9 = 
-ramp-10 = 
-ramp-11 = 
-ramp-12 = 
-ramp-13 = 
-ramp-14 = 
+ramp-0  = ""
+ramp-1  = ""
+ramp-2  = ""
+ramp-3  = ""
+ramp-4  = ""
+ramp-5  = ""
+ramp-6  = ""
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -190,194 +908,329 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.background}
-format = " <ramp-coreload> "
+format-prefix-foreground = ${root.foreground_alt}
+format-underline = ${root.color_cpu}
+format = " <ramp-coreload> "
 ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = ${colors.green-alt}
+ramp-coreload-0-foreground = ${root.success}
 ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = ${colors.green}
+ramp-coreload-1-foreground = ${root.success}
 ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = ${colors.green}
+ramp-coreload-2-foreground = ${root.success}
 ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = ${colors.yellow}
+ramp-coreload-3-foreground = ${root.info}
 ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = ${colors.yellow-alt}
+ramp-coreload-4-foreground = ${root.info}
 ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = ${colors.orange}
+ramp-coreload-5-foreground = ${root.warning}
 ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = ${colors.orange-alt}
+ramp-coreload-6-foreground = ${root.warning}
 ramp-coreload-7 = █
-ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = ${colors.red}
+ramp-coreload-7-foreground = ${root.failure}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format = "﬙ <ramp-used>"
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.background}
+format = " <ramp-used>"
+format-prefix-foreground = ${root.foreground_alt}
+format-underline = ${root.color_mem}
 label = "%gb_used%"
 ramp-used-0 = ▁
-ramp-used-0-font = 2
-ramp-used-0-foreground = ${colors.green-alt}
+ramp-used-0-foreground = ${root.success}
 ramp-used-1 = ▂
-ramp-used-1-font = 2
-ramp-used-1-foreground = ${colors.green}
+ramp-used-1-foreground = ${root.success}
 ramp-used-2 = ▃
-ramp-used-2-font = 2
-ramp-used-2-foreground = ${colors.green}
+ramp-used-2-foreground = ${root.success}
 ramp-used-3 = ▄
-ramp-used-3-font = 2
-ramp-used-3-foreground = ${colors.yellow}
+ramp-used-3-foreground = ${root.info}
 ramp-used-4 = ▅
-ramp-used-4-font = 2
-ramp-used-4-foreground = ${colors.yellow-alt}
+ramp-used-4-foreground = ${root.info}
 ramp-used-5 = ▆
-ramp-used-5-font = 2
-ramp-used-5-foreground = ${colors.orange}
+ramp-used-5-foreground = ${root.warning}
 ramp-used-6 = ▇
-ramp-used-6-font = 2
-ramp-used-6-foreground = ${colors.orange-alt}
+ramp-used-6-foreground = ${root.warning}
 ramp-used-7 = █
-ramp-used-7-font = 2
-ramp-used-7-foreground = ${colors.red}
+ramp-used-7-foreground = ${root.failure}
 
 [module/wlan]
 type = internal/network
 interface = wlp2s0
+
 interval = 3.0
+ramp-signal-0 = "冷"
+ramp-signal-1 = "爛"
+ramp-signal-2 = "嵐"
+ramp-signal-3 = "襤"
+ramp-signal-4 = "蠟"
+ramp-signal-foreground = ${root.foreground}
 
-ramp-signal-0 = "-"
-ramp-signal-0-font = 2
-ramp-signal-1 = "~"
-ramp-signal-1-font = 2
-ramp-signal-2 = "+"
-ramp-signal-2-font = 2
-ramp-signal-foreground = ${colors.foreground-alt}
-
-format-connected = " <ramp-signal> <label-connected>"
-format-connected-underline = ${colors.primary}
-label-connected = %essid%
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${root.color_net_connected}
 
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.secondary}
-label-disconnected = "睊 %ifname%"
-label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-underline = ${root.color_net_disabled}
+
+label-connected = "%essid:9:12:...%"
+label-connected-foreground = ${root.foreground_alt}
+
+label-disconnected = "郎 %ifname%"
+label-disconnected-foreground = ${root.foreground_alt}
 
 [module/date]
 type = internal/date
 interval = 1
 
-date = "%d %m %Y"
-date-alt = "%A %B %Y"
-
 time = "%H:%M"
-time-alt = "%H:%M:%S"
+time_alt = "%H:%M:%S"
 
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-underline = ${colors.primary}
+date = "%d-%m-%Y"
+date_alt = "%A %B %Y"
 
-label = "%time% - %date%"
+format-foreground = ${root.foreground}
+format-background = ${root.background}
+format-underline = ${root.color_date}
+
+label = "肋 %time%   %date%"
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <ramp-volume><label-volume>
 
-label-volume = "墳"
-label-volume-foreground = ${colors.foreground}
-label-muted = " muted"
-label-muted-foreground = ${colors.foreground-alt}
+label-volume = " %percentage%%"
+label-volume-foreground = ${root.foreground}
+label-volume-underline = ${root.color_vol_enabled}
+label-muted = "    "
+label-muted-foreground = ${root.foreground_alt}
+label-muted-underline = ${root.color_vol_disabled}
 
-bar-volume-width = 10
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-foreground-0 = ${colors.primary}
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-bar-volume-indicator = ●
-bar-volume-indicator-foreground = ${self.bar-volume-foreground-0}
-bar-volume-indicator-font = 2
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-underline = ${root.accent_1}
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 99
 
-format-foreground = ${colors.foreground}
+format-foreground = ${root.foreground}
 format-charging = "<animation-charging> <label-charging>"
-format-charging-underline = ${colors.secondary}
+format-charging-underline = ${root.color_bat_charge}
 
 format-discharging = "<ramp-capacity> <label-discharging>"
-format-discharging-underline = ${colors.primary}
+format-discharging-underline = ${root.color_bat_discharge}
 
 format-full = "<ramp-capacity> <label-full>"
-format-full-underline = ${colors.green}
+format-full-underline = ${root.color_bat_charged}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+ramp-capacity-5 = ""
+ramp-capacity-6 = ""
+ramp-capacity-7 = ""
+ramp-capacity-8 = ""
+ramp-capacity-9 = ""
+ramp-capacity-10 = ""
+ramp-capacity-foreground = ${root.foreground}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.secondary}
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-5 = ""
+animation-charging-6 = ""
+animation-charging-7 = ""
+animation-charging-8 = ""
+animation-charging-9 = ""
+animation-charging-10 = ""
+animation-charging-11 = ""
+animation-charging-12 = ""
+animation-charging-13 = ""
+animation-charging-14 = ""
+animation-charging-15 = ""
+animation-charging-16 = ""
+animation-charging-foreground = ${root.color_bat_charge}
 animation-charging-framerate = 200
 
 [module/powermenu]
 type = custom/menu
 
-label-open = "  "
-label-close = "  "
-label-separator = " | "
-label-separator-background = ${colors.background}
-label-separator-foreground = ${colors.primary}
+label-open = "    "
+label-close = "    "
+;label-open = "  塚  "
+;label-close = "    "
+;label-open = "  塚  "
+;label-close = "    "
+;label-open = "    "
+;label-close = "    "
+;${self.label-open}
+label-open-margin-left = ${root.module-margin}
+label-close-margin-left = ${root.module-margin}
+label-close-overline = ${root.foreground_alt_t}
+label-close-background = ${root.background_alt}
+label-separator = 
 
-menu-0-0 = " Logout"
-menu-0-0-foreground = ${colors.foreground}
-menu-0-0-exec = menu-open-1
-menu-0-1 = "痢 Reboot"
-menu-0-1-foreground = ${colors.secondary}
-menu-0-1-exec = menu-open-2
-menu-0-2 = "⏼ Power off"
-menu-0-2-foreground = ${colors.primary}
-menu-0-2-exec = menu-open-3
+menu-0-0 = "靖"
+menu-0-0-foreground = ${root.info}
+menu-0-0-background = ${root.background_alt}
+menu-0-0-underline = ${root.info_t}
+menu-0-0-padding = 1
+menu-0-0-exec = rofi -modi drun -show drun
+menu-0-1 = ""
+menu-0-1-foreground = ${root.info}
+menu-0-1-background = ${root.background_alt}
+menu-0-1-underline = ${root.info_t}
+menu-0-1-padding = 1
+menu-0-1-exec = i3lock
+menu-0-2 = ""
+menu-0-2-foreground = ${root.warning}
+menu-0-2-background = ${root.background_alt}
+menu-0-2-underline = ${root.warning_t}
+menu-0-2-padding = 1
+menu-0-2-exec = menu-open-1
+menu-0-3 = "賈"
+menu-0-3-foreground = ${root.warning}
+menu-0-3-background = ${root.background_alt}
+menu-0-3-underline = ${root.warning_t}
+menu-0-3-padding = 1
+menu-0-3-exec = menu-open-2
+menu-0-4 = ""
+menu-0-4-foreground = ${root.failure}
+menu-0-4-background = ${root.background_alt}
+menu-0-4-underline = ${root.failure_t}
+menu-0-4-padding = 1
+menu-0-4-exec = menu-open-3
+menu-0-5 = ""
+menu-0-5-foreground = ${root.failure}
+menu-0-5-background = ${root.background_alt}
+menu-0-5-underline = ${root.failure_t}
+menu-0-5-padding = 1
+menu-0-5-exec = menu-open-4
 
-menu-1-0 = " Logout"
-menu-1-0-foreground = ${colors.alert}
+menu-1-0 = " Logout"
+menu-1-0-padding = 1
+menu-1-0-foreground = ${root.warning}
+menu-1-0-background = ${root.background_alt}
 menu-1-0-exec = i3-msg -t command exit
-menu-1-1 = " Cancel"
-menu-1-1-foreground = ${colors.foreground}
+menu-1-1 = "  Cancel"
+menu-1-1-foreground = ${root.foreground}
 menu-1-1-exec = menu-open-0
 
-menu-2-0 = "痢 Reboot"
-menu-2-0-foreground = ${colors.alert}
-menu-2-0-exec = reboot
-menu-2-1 = " Cancel"
-menu-2-1-foreground = ${colors.foreground}
+menu-2-0 = "賈 Sleep"
+menu-2-0-padding = 1
+menu-2-0-foreground = ${root.warning}
+menu-2-0-background = ${root.background_alt}
+menu-2-0-exec = i3lock && systemctl suspend
+menu-2-1 = "  Cancel"
+menu-2-1-foreground = ${root.foreground}
 menu-2-1-exec = menu-open-0
 
-menu-3-0 = "⏼ Power off"
-menu-3-0-foreground = ${colors.alert}
-menu-3-0-exec = poweroff
-menu-3-1 = " Cancel"
-menu-3-1-foreground = ${colors.foreground}
+menu-3-0 = " Reboot"
+menu-3-0-padding = 1
+menu-3-0-foreground = ${root.warning}
+menu-3-0-background = ${root.background_alt}
+menu-3-0-exec = reboot
+menu-3-1 = "  Cancel"
+menu-3-1-foreground = ${root.foreground}
 menu-3-1-exec = menu-open-0
+
+menu-4-0 = "串 Power off"
+menu-4-0-padding = 1
+menu-4-0-foreground = ${root.warning}
+menu-4-0-background = ${root.background_alt}
+menu-4-0-exec = poweroff
+menu-4-1 = "  Cancel"
+menu-4-1-foreground = ${root.foreground}
+menu-4-1-exec = menu-open-0
+
+[module/powermenu_alt]
+type = custom/menu
+
+label-open = "    "
+label-close = "    "
+;${self.label-open}
+label-close-margin-left = ${root.module-margin}
+label-close-overline = ${root.foreground_alt_t}
+label-close-background = ${root.background_alt}
+label-separator = 
+
+menu-0-0 = "靖"
+menu-0-0-foreground = ${root.info}
+menu-0-0-background = ${root.background_alt}
+menu-0-0-underline = ${root.info_t}
+menu-0-0-padding = 1
+menu-0-0-exec = rofi -modi drun -show drun
+menu-0-1 = ""
+menu-0-1-foreground = ${root.info}
+menu-0-1-background = ${root.background_alt}
+menu-0-1-underline = ${root.info_t}
+menu-0-1-padding = 1
+menu-0-1-exec = i3lock
+menu-0-2 = ""
+menu-0-2-foreground = ${root.warning}
+menu-0-2-background = ${root.background_alt}
+menu-0-2-underline = ${root.warning_t}
+menu-0-2-padding = 1
+menu-0-2-exec = menu-open-1
+menu-0-3 = "賈"
+menu-0-3-foreground = ${root.warning}
+menu-0-3-background = ${root.background_alt}
+menu-0-3-underline = ${root.warning_t}
+menu-0-3-padding = 1
+menu-0-3-exec = menu-open-2
+menu-0-4 = ""
+menu-0-4-foreground = ${root.failure}
+menu-0-4-background = ${root.background_alt}
+menu-0-4-underline = ${root.failure_t}
+menu-0-4-padding = 1
+menu-0-4-exec = menu-open-3
+menu-0-5 = ""
+menu-0-5-foreground = ${root.failure}
+menu-0-5-background = ${root.background_alt}
+menu-0-5-underline = ${root.failure_t}
+menu-0-5-padding = 1
+menu-0-5-exec = menu-open-4
+
+menu-1-0 = " Logout"
+menu-1-0-padding = 1
+menu-1-0-foreground = ${root.warning}
+menu-1-0-background = ${root.background_alt}
+menu-1-0-exec = i3-msg -t command exit
+menu-1-1 = "  Cancel"
+menu-1-1-foreground = ${root.foreground}
+menu-1-1-exec = menu-open-0
+
+menu-2-0 = "賈 Sleep"
+menu-2-0-padding = 1
+menu-2-0-foreground = ${root.warning}
+menu-2-0-background = ${root.background_alt}
+menu-2-0-exec = i3lock && systemctl suspend
+menu-2-1 = "  Cancel"
+menu-2-1-foreground = ${root.foreground}
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = " Reboot"
+menu-3-0-padding = 1
+menu-3-0-foreground = ${root.warning}
+menu-3-0-background = ${root.background_alt}
+menu-3-0-exec = reboot
+menu-3-1 = "  Cancel"
+menu-3-1-foreground = ${root.foreground}
+menu-3-1-exec = menu-open-0
+
+menu-4-0 = "串 Power off"
+menu-4-0-padding = 1
+menu-4-0-foreground = ${root.warning}
+menu-4-0-background = ${root.background_alt}
+menu-4-0-exec = poweroff
+menu-4-1 = "  Cancel"
+menu-4-1-foreground = ${root.foreground}
+menu-4-1-exec = menu-open-0
 
 ; vim:ft=dosini

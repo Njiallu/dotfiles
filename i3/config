@@ -1,18 +1,24 @@
 #::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
 set $mod Mod4
+set $dock $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent
+set $lock i3lock
+set $wdrun rofi -show drun
+set $wselect rofi -show window
+set $wselect_run rofi -show combi
+set $wallpaper ~/.fehbg
 
-font pango:DejaVuSansMono Nerd Font Mono 16
+font pango:DejaVuSans Mono 12
 floating_modifier $mod
 
-set $resize 'Resize: Arrows to resize'
+set $resize Resize: Arrows to resize
 
-set $mode_gaps 'Gaps: (o) outer, (i) inner'
-set $mode_gaps_outer 'Outer: [Shift +] + | - | 0'
-set $mode_gaps_inner 'Inner: [Shift +] + | - | 0'
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer: [Shift +] + | - | 0
+set $mode_gaps_inner Inner: [Shift +] + | - | 0
 
 for_window [class="^.*"] border none
 
-gaps inner 20
+gaps inner 10
 gaps outer 0
 
 client.focused #fe8019af #fe8019af #282828 #282828
@@ -25,10 +31,10 @@ client.urgent #fb4934 #fb4834 #ebdbb2 #282828
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+q kill
 bindsym $mod+w kill
-bindsym $mod+space exec --no-startup-id rofi -show drun
-bindsym $mod+Tab exec --no-startup-id rofi -show window
-bindsym Mod1+Tab exec --no-startup-id rofi -show combi
-bindsym --release $mod+l exec --no-startup-id i3lock
+bindsym $mod+space exec --no-startup-id $wdrun
+bindsym $mod+Tab exec --no-startup-id $wselect
+bindsym Mod1+Tab exec --no-startup-id $wselect_run
+bindsym --release $mod+l exec --no-startup-id $lock
 
 # Change focus
 bindsym $mod+Left focus left
@@ -79,7 +85,7 @@ bindsym --release XF86AudioNext exec playerctl next
 bindsym --release XF86AudioPrev exec playerctl previous
 
 bindsym $mod+Shift+c reload
-# bindsym $mod+Shift+r restart
+bindsym $mod+Control+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -m 'Exit i3 and X?' -b 'Yes' 'i3-msg exit'"
 
 #::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
@@ -181,10 +187,13 @@ exec --no-startup-id /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libi
 #  Flash focus
 exec_always --no-startup-id "killall -q flashfocus; flashfocus"
 #  Such nice wallpaper
-exec_always --no-startup-id "feh --bg-center ~/Pictures/mountains.png"
+exec_always --no-startup-id $wallpaper
 #  Polybar
-exec_always --no-startup-id "killall -a polybar; polybar -rq top"
+exec_always --no-startup-id $dock
 #  Compton
-exec_always --no-startup-id "killall -q compton; compton"
+exec_always --no-startup-id "killall -q compton; compton --config ~/.config/compton/compton.conf"
 #  Dunst
 exec_always --no-startup-id "killall -q dunst; dunst"
+#  Polkit
+exec_always --no-startup-id "killall -q polkit-gnome-authentication-agent-1;\
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"

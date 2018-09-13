@@ -13,18 +13,19 @@ env:
   # `infocmp xterm-256color`.
   TERM: xterm-256color
 
+window:
 # Window dimensions in character columns and lines
 # (changes require restart)
-dimensions:
-  columns: 96
-  lines: 25
+    dimensions:
+      columns: 96
+      lines: 25
 
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
 # (change requires restart)
-padding:
-  x: 8
-  y: 8
+    padding:
+      x: 8
+      y: 8
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 4
@@ -34,6 +35,8 @@ draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
+  # Point size of the font
+  size: 8.0
   # The normal (roman) font face to use.
   normal:
     family: 'DejaVuSansMono Nerd Font Mono'
@@ -52,26 +55,24 @@ font:
     # Style can be specified to pick a specific face.
     style: Oblique
 
-  # Point size of the font
-  size: 12.0
-
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 0.0
-    y: 1.0
+    x: 0
+    y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
   # the right, increase the y offset to move the glyph upward.
   glyph_offset:
-    x: 0.0
-    y: 1.2
+    x: 0
+    y: 0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
   use_thin_strokes: true
+  scale_with_dpi: true
 
 # Should display the render timer
 render_timer: false
@@ -220,8 +221,10 @@ shell:
 #     strings. For example:
 #     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
 key_bindings:
-  - { key: V,        mods: Control | Shift, action: Paste                        }
-  - { key: C,        mods: Control | Shift, action: Copy                         }
+  - { key: V,        mods: Control | Shift, action: Paste                }
+  - { key: C,        mods: Control | Shift, action: Copy                 }
+  - { key: V,        mods: Command, action: Paste                        }
+  - { key: C,        mods: Command, action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
@@ -230,7 +233,7 @@ key_bindings:
   - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
   - { key: Key0,     mods: Command, action: ResetFontSize                }
   - { key: Equals,   mods: Command, action: IncreaseFontSize             }
-  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  - { key: Subtract, mods: Command, action: DecreaseFontSize             }
   - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
   - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
   - { key: PageUp,                  chars: "\x1b[5~"                     }

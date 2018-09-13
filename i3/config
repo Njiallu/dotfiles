@@ -1,5 +1,4 @@
 #::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
-<<<<<<< HEAD
 set $mod   Mod4
 set $app   Mod1
 set $dock  $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent

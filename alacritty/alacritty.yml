@@ -16,16 +16,16 @@ env:
 window:
 # Window dimensions in character columns and lines
 # (changes require restart)
-    dimensions:
-      columns: 96
-      lines: 25
+  dimensions:
+    columns: 96
+    lines: 25
 
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
 # (change requires restart)
-    padding:
-      x: 8
-      y: 8
+  padding:
+    x: 8
+    y: 8
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 4

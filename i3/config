@@ -1,11 +1,16 @@
 #::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
-set $mod Mod4
-set $dock $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent
-set $lock i3lock
-set $wdrun rofi -show drun
-set $wselect rofi -show window
-set $wselect_run rofi -show combi
-set $wallpaper ~/.fehbg
+<<<<<<< HEAD
+set $mod   Mod4
+set $app   Mod1
+set $dock  $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent
+set $notif dunst
+set $lock  i3lock
+set $menu  rofi -show drun
+set $apps  rofi -show window
+set $tabs  rofi -show combi
+set $term  alacritty
+set $tterm alacritty -e tmux
+set $wall  ~/.fehbg
 
 font pango:DejaVuSans Mono 12
 floating_modifier $mod
@@ -16,77 +21,81 @@ set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer: [Shift +] + | - | 0
 set $mode_gaps_inner Inner: [Shift +] + | - | 0
 
-for_window [class="^.*"] border none
-
 gaps inner 10
 gaps outer 0
 
-client.focused #fe8019af #fe8019af #282828 #282828
-client.focused_inactive #1d2021 #1d2021 #928374 #282828
-client.unfocused #282828 #282828 #fabd2f #fabd2f
-client.urgent #fb4934 #fb4834 #ebdbb2 #282828
+# class                    border    back      text      indicator
+client.focused            #fe8019af #fe8019af #282828   #282828
+client.focused_inactive   #00       #1d2021   #928374   #282828
+client.unfocused          #282828af #282828af #fabd2f   #fabd2f
+client.urgent             #00       #fb4834   #ebdbb2   #282828
+
+new_window none
 
 #::::::::::::::::::::::::::::: Key Bindings :::::::::::::::::::::::::::::::::::#
 
-bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+q kill
-bindsym $mod+w kill
-bindsym $mod+space exec --no-startup-id $wdrun
-bindsym $mod+Tab exec --no-startup-id $wselect
-bindsym Mod1+Tab exec --no-startup-id $wselect_run
-bindsym --release $mod+l exec --no-startup-id $lock
+bindsym $mod+q            kill
+bindsym $mod+w            kill
+bindsym Control+Shift+w   kill
+
+bindsym $mod+Return       exec --no-startup-id $term
+bindsym $mod+Shift+Return exec --no-startup-id $tterm
+bindsym $mod+space        exec --no-startup-id $menu
+bindsym $mod+Tab          exec --no-startup-id $apps
+bindsym $app+Tab          exec --no-startup-id $tabs
+bindsym --release $mod+l  exec --no-startup-id $lock
 
 # Change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left         focus left
+bindsym $mod+Down         focus down
+bindsym $mod+Up           focus up
+bindsym $mod+Right        focus right
 
 # Move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
 
 # Split in h/v orientation
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $mod+h            split h
+bindsym $mod+v            split v
 
 # Change mode
-bindsym $mod+r mode "$resize"
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+r            mode "$resize"
+bindsym $mod+Shift+g      mode "$mode_gaps"
 
 # Change container layout (fullscreen, stacked, tabbed, toggle split)
-bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+f            fullscreen toggle
+bindsym $mod+s            layout stacking
+bindsym $mod+t            layout tabbed
+bindsym $mod+e            layout toggle split
 
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+Alt+space focus mode_toggle
+bindsym $mod+Shift+space  floating toggle
+bindsym $mod+$app+space   focus mode_toggle
 
 # Focus the parent/child container
-bindsym $mod+a focus parent
-bindsym $mod+d focus child
+bindsym $mod+a            focus parent
+bindsym $mod+d            focus child
 
 # Pulse Audio controls
-bindsym --release XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1+ 5%+
-bindsym --release XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 1+ 5%-
-bindsym --release XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
+bindsym --release XF86AudioRaiseVolume  exec --no-startup-id amixer -D pulse sset Master 5%+ unmute
+bindsym --release XF86AudioLowerVolume  exec --no-startup-id amixer -D pulse sset Master 5%- unmute
+bindsym --release XF86AudioMute         exec --no-startup-id amixer -D pulse sset Master toggle
 
 # Sreen brightness controls
-bindsym --release XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym --release XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
 bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Media player controls
-bindsym --release XF86AudioPlay exec playerctl play
-bindsym --release XF86AudioPause exec playerctl pause
-bindsym --release XF86AudioNext exec playerctl next
-bindsym --release XF86AudioPrev exec playerctl previous
+bindsym --release XF86AudioPlay         exec playerctl play
+bindsym --release XF86AudioPause        exec playerctl pause
+bindsym --release XF86AudioNext         exec playerctl next
+bindsym --release XF86AudioPrev         exec playerctl previous
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Control+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -m 'Exit i3 and X?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+c                    reload
+bindsym $mod+$app+r                     restart
+bindsym $mod+$app+Control+e             exec i3-msg exit
 
 #::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
 
@@ -128,17 +137,18 @@ bindsym $mod+Shift+0 move container to workspace $WS0
 #       Screenshot, music, monitors, etc.
 bindsym --release $mod+Shift+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
 bindsym --release $mod+Shift+o exec mpc toggle
-bindsym --release $mod+Shift+l move workspace to output left
-bindsym --release $mod+Shift+r move workspace to output right
+bindsym --release $mod+Control+Left  move workspace to output left
+bindsym --release $mod+Control+Right move workspace to output right
+#bindsym --release $mod+Shift+r move workspace to output right
 
 #:::::::::::::::::::::::::: Customize i3 modes ::::::::::::::::::::::::::::::::#
 
 #		Resize mode
 mode "$resize" {
-		bindsym Left resize shrink width 10 px or 10 ppt
-		bindsym Down resize grow height 10 px or 10 ppt
-		bindsym Up resize shrink height 10 px or 10 ppt
-		bindsym Right resize grow width 10 px or 10 ppt
+		bindsym Down  resize grow   height 10 px or 5 ppt
+		bindsym Up    resize shrink height 10 px or 5 ppt
+		bindsym Right resize grow   width  10 px or 5 ppt
+		bindsym Left  resize shrink width  10 px or 5 ppt
 
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
@@ -182,8 +192,9 @@ mode "$mode_gaps_outer" {
 
 #::::::::::::::::::::::::::::: Various Exec :::::::::::::::::::::::::::::::::::#
 
-#  Xinput
-exec --no-startup-id /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+# Screen configuration
+exec_always --no-startup-id '/home/njiall/.screenlayout/default.sh'
+
 #  Flash focus
 exec_always --no-startup-id "killall -q flashfocus; flashfocus"
 #  Such nice wallpaper
@@ -193,7 +204,7 @@ exec_always --no-startup-id $dock
 #  Compton
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/compton/compton.conf"
 #  Dunst
-exec_always --no-startup-id "killall -q dunst; dunst"
+exec_always --no-startup-id "killall -q $notif; $notif"
 #  Polkit
 exec_always --no-startup-id "killall -q polkit-gnome-authentication-agent-1;\
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"

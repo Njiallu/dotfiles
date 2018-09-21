@@ -31,25 +31,25 @@ blue_dark        = #458588
 purple           = #f043a0
 purple_dark      = #CC1075
 
-red_t            = #a5fb4934
-red_dark_t       = #a5cc241d
-orange_t         = #a5fe8019
-orange_dark_t    = #a5d65d0e
-yellow_t         = #a5fabd2f
-yellow_dark_t    = #a5d79921
-green_t          = #a5b8bb26
-green_dark_t     = #a598971a
-aqua_t           = #a58ec07c
-aqua_dark_t      = #a5689d6a
-blue_t           = #a583a598
-blue_dark_t      = #a5458588
-purple_t         = #a5d3869b
-purple_dark_t    = #a5b16286
+red_t            = #d5fb4934
+red_dark_t       = #d5cc241d
+orange_t         = #d5fe8019
+orange_dark_t    = #d5d65d0e
+yellow_t         = #d5fabd2f
+yellow_dark_t    = #d5d79921
+green_t          = #d5b8bb26
+green_dark_t     = #d598971a
+aqua_t           = #d58ec07c
+aqua_dark_t      = #d5689d6a
+blue_t           = #d583a598
+blue_dark_t      = #d5458588
+purple_t         = #d5d3869b
+purple_dark_t    = #d5b16286
 
 background       = #282828
 background_alt   = #3c3836
-background_t     = #a5282828
-background_alt_t = #a53c3836
+background_t     = #d5282828
+background_alt_t = #d53c3836
 
 foreground       = #ebdbb2
 foreground_alt   = #928374
@@ -970,7 +970,7 @@ format-connected-underline = ${root.color_net_connected}
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${root.color_net_disabled}
 
-label-connected = "%essid:9:12:...%"
+label-connected = "%essid:9:13:.%"
 label-connected-foreground = ${root.foreground_alt}
 
 label-disconnected = "郎 %ifname%"

@@ -1,6 +1,7 @@
 #::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
 set $mod   Mod4
 set $app   Mod1
+set $meta  Shift
 set $dock  $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent
 set $notif dunst
 set $lock  i3lock
@@ -9,7 +10,14 @@ set $apps  rofi -show window
 set $tabs  rofi -show combi
 set $term  alacritty
 set $tterm alacritty -e tmux
-set $wall  ~/.fehbg
+set $wall  bash $HOME/.fehbg
+set $compo compton
+set $theme $HOME/.config/script/switch_theme.sh
+
+set $TERMINAL alacritty
+
+set $volume_step 5
+set $backlight_step 5
 
 font pango:DejaVuSans Mono 12
 floating_modifier $mod
@@ -35,10 +43,10 @@ new_window none
 
 bindsym $mod+q            kill
 bindsym $mod+w            kill
-bindsym Control+Shift+w   kill
+bindsym Control+$meta+w   kill
 
 bindsym $mod+Return       exec --no-startup-id $term
-bindsym $mod+Shift+Return exec --no-startup-id $tterm
+bindsym $mod+$meta+Return exec --no-startup-id $tterm
 bindsym $mod+space        exec --no-startup-id $menu
 bindsym $mod+Tab          exec --no-startup-id $apps
 bindsym $app+Tab          exec --no-startup-id $tabs
@@ -51,10 +59,10 @@ bindsym $mod+Up           focus up
 bindsym $mod+Right        focus right
 
 # Move focused window
-bindsym $mod+Shift+Left   move left
-bindsym $mod+Shift+Down   move down
-bindsym $mod+Shift+Up     move up
-bindsym $mod+Shift+Right  move right
+bindsym $mod+$meta+Left   move left
+bindsym $mod+$meta+Down   move down
+bindsym $mod+$meta+Up     move up
+bindsym $mod+$meta+Right  move right
 
 # Split in h/v orientation
 bindsym $mod+h            split h
@@ -62,7 +70,7 @@ bindsym $mod+v            split v
 
 # Change mode
 bindsym $mod+r            mode "$resize"
-bindsym $mod+Shift+g      mode "$mode_gaps"
+bindsym $mod+g            mode "$mode_gaps"
 
 # Change container layout (fullscreen, stacked, tabbed, toggle split)
 bindsym $mod+f            fullscreen toggle
@@ -70,7 +78,7 @@ bindsym $mod+s            layout stacking
 bindsym $mod+t            layout tabbed
 bindsym $mod+e            layout toggle split
 
-bindsym $mod+Shift+space  floating toggle
+bindsym $mod+$meta+space  floating toggle
 bindsym $mod+$app+space   focus mode_toggle
 
 # Focus the parent/child container
@@ -78,13 +86,13 @@ bindsym $mod+a            focus parent
 bindsym $mod+d            focus child
 
 # Pulse Audio controls
-bindsym --release XF86AudioRaiseVolume  exec --no-startup-id amixer -D pulse sset Master 5%+ unmute
-bindsym --release XF86AudioLowerVolume  exec --no-startup-id amixer -D pulse sset Master 5%- unmute
+bindsym --release XF86AudioRaiseVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%+ unmute
+bindsym --release XF86AudioLowerVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%- unmute
 bindsym --release XF86AudioMute         exec --no-startup-id amixer -D pulse sset Master toggle
 
 # Sreen brightness controls
-bindsym --release XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
-bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym --release XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc $backlight_step
+bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec $backlight_step
 
 # Media player controls
 bindsym --release XF86AudioPlay         exec playerctl play
@@ -92,9 +100,10 @@ bindsym --release XF86AudioPause        exec playerctl pause
 bindsym --release XF86AudioNext         exec playerctl next
 bindsym --release XF86AudioPrev         exec playerctl previous
 
-bindsym $mod+Shift+c                    reload
+bindsym $mod+$app+c                     reload
 bindsym $mod+$app+r                     restart
-bindsym $mod+$app+Control+e             exec i3-msg exit
+bindsym $mod+$app+$meta+e               exec i3-msg exit
+bindsym $mod+$app+$meta+t               $theme
 
 #::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
 
@@ -122,23 +131,22 @@ bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS0
 
 #       Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $WS1
-bindsym $mod+Shift+2 move container to workspace $WS2
-bindsym $mod+Shift+3 move container to workspace $WS3
-bindsym $mod+Shift+4 move container to workspace $WS4
-bindsym $mod+Shift+5 move container to workspace $WS5
-bindsym $mod+Shift+6 move container to workspace $WS6
-bindsym $mod+Shift+7 move container to workspace $WS7
-bindsym $mod+Shift+8 move container to workspace $WS8
-bindsym $mod+Shift+9 move container to workspace $WS9
-bindsym $mod+Shift+0 move container to workspace $WS0
+bindsym $mod+$meta+1 move container to workspace $WS1
+bindsym $mod+$meta+2 move container to workspace $WS2
+bindsym $mod+$meta+3 move container to workspace $WS3
+bindsym $mod+$meta+4 move container to workspace $WS4
+bindsym $mod+$meta+5 move container to workspace $WS5
+bindsym $mod+$meta+6 move container to workspace $WS6
+bindsym $mod+$meta+7 move container to workspace $WS7
+bindsym $mod+$meta+8 move container to workspace $WS8
+bindsym $mod+$meta+9 move container to workspace $WS9
+bindsym $mod+$meta+0 move container to workspace $WS0
 
 #       Screenshot, music, monitors, etc.
-bindsym --release $mod+Shift+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
-bindsym --release $mod+Shift+o exec mpc toggle
-bindsym --release $mod+Control+Left  move workspace to output left
-bindsym --release $mod+Control+Right move workspace to output right
-#bindsym --release $mod+Shift+r move workspace to output right
+bindsym --release $mod+$meta+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
+bindsym --release $mod+$meta+o exec mpc toggle
+bindsym --release $mod+$meta+Left  move workspace to output left
+bindsym --release $mod+$meta+Right move workspace to output right
 
 #:::::::::::::::::::::::::: Customize i3 modes ::::::::::::::::::::::::::::::::#
 
@@ -166,9 +174,9 @@ mode "$mode_gaps_inner" {
 		bindsym minus gaps inner current minus 5
 		bindsym 0     gaps inner current set 0
 
-		bindsym Shift+plus  gaps inner all plus 5
-		bindsym Shift+minus gaps inner all minus 5
-		bindsym Shift+0     gaps inner all set 0
+		bindsym $meta+plus  gaps inner all plus 5
+		bindsym $meta+minus gaps inner all minus 5
+		bindsym $meta+0     gaps inner all set 0
 
 		bindsym b      mode "$mode_gaps"
 		bindsym Return mode "default"
@@ -180,9 +188,9 @@ mode "$mode_gaps_outer" {
 		bindsym minus gaps outer current minus 5
 		bindsym 0     gaps outer current set 0
 
-		bindsym Shift+plus  gaps outer all plus 5
-		bindsym Shift+minus gaps outer all minus 5
-		bindsym Shift+0     gaps outer all set 0
+		bindsym $meta+plus  gaps outer all plus 5
+		bindsym $meta+minus gaps outer all minus 5
+		bindsym $meta+0     gaps outer all set 0
 
 		bindsym b      mode "$mode_gaps"
 		bindsym Return mode "default"
@@ -193,15 +201,16 @@ mode "$mode_gaps_outer" {
 
 # Screen configuration
 exec_always --no-startup-id '/home/njiall/.screenlayout/default.sh'
-
+#  Xinput touchpad tap to click
+exec_always --no-startup-id /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 #  Flash focus
 exec_always --no-startup-id "killall -q flashfocus; flashfocus"
 #  Such nice wallpaper
-exec_always --no-startup-id $wallpaper
+exec_always --no-startup-id "$wall"
 #  Polybar
 exec_always --no-startup-id $dock
 #  Compton
-exec_always --no-startup-id "killall -q compton; compton --config ~/.config/compton/compton.conf"
+exec_always --no-startup-id "killall -q $compo; $compo --config ~/.config/compton/compton.conf --blur-method kawase --blur-strength 10"
 #  Dunst
 exec_always --no-startup-id "killall -q $notif; $notif"
 #  Polkit

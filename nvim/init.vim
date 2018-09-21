@@ -11,16 +11,13 @@ call plug#begin(expand('~/.local/share/nvim/plugged'))
 "	Add or remove bundles here:
 "			Snippets / Linting
 Plug 'w0rp/ale'
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'sheerun/vim-polyglot'
 "			Syntax
 Plug 'scrooloose/nerdcommenter'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/ctags.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'peterhoeg/vim-qml'
 Plug 'chrisbra/Colorizer'
 "			Useful
 Plug 'mhinz/vim-startify'

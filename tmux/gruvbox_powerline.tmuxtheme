@@ -1,0 +1,6 @@
+# vim: set syntax=tmux:
+set -g status-right "#[fg=$gruvbox_orange]#[fg=$gruvbox_black,bg=$gruvbox_orange]#[fg=$gruvbox_white,bg=$gruvbox_black,nounderscore,noitalics] %_H:%M  %A #[fg=$gruvbox_orange]#[fg=$gruvbox_black,bg=$gruvbox_orange]%d#[fg=$gruvbox_orange,bg=$gruvbox_black]#[fg=$gruvbox_white,bg=$gruvbox_black] %B %Y #[fg=$gruvbox_dark_grey,bg=$gruvbox_black]#[fg=$gruvbox_white, bg=$gruvbox_dark_grey] #(whoami) #[fg=$gruvbox_orange,bg=$gruvbox_dark_grey,nobold,nounderscore,noitalics]#[fg=$gruvbox_white,bg=$gruvbox_orange,nobold] #h #[fg=$gruvbox_light_grey, bg=$gruvbox_orange]#[fg=$gruvbox_red,bg=$gruvbox_light_grey]#[bg=$gruvbox_red] "
+set -g status-left "#[fg=$gruvbox_dark_grey,bg=$gruvbox_orange,bold] #{pane_height}/#{pane_width}#[fg=$gruvbox_orange,bg=default,nobold,nounderscore,noitalics]"
+
+set -g window-status-format "#[bg=default,fg=$gruvbox_black,nobold,nounderscore,noitalics]#[fg=$gruvbox_white,bg=$gruvbox_black] #I  #W #[fg=$gruvbox_black,bg=default,nobold,nounderscore,noitalics]"
+set -g window-status-current-format "#[bg=$default,nobold,nounderscore,noitalics]#[fg=$gruvbox_dark_grey]#[fg=$gruvbox_white,bg=$gruvbox_dark_grey,nobold] #I  #{?window_zoomed_flag,🔍 ,}#W #[fg=$gruvbox_dark_grey,bg=$gruvbox_blue,nobold,nounderscore,noitalics]#[fg=$gruvbox_blue,bg=default]"

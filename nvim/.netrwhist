@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/njiall/njiall_clairvoyance/Assets'
-let g:netrw_dirhist_2='/home/njiall/.dotfiles/alacritty'
-let g:netrw_dirhist_3='/home/njiall/.dotfiles/spotify'
-let g:netrw_dirhist_4='/home/njiall/.dotfiles/i3'
-let g:netrw_dirhist_5='/home/njiall/.dotfiles/polybar'
-let g:netrw_dirhist_6='/home/njiall/dotfiles'
-let g:netrw_dirhist_7='/var/lib/pacman/local'
-let g:netrw_dirhist_8='/usr/share/icons'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/njiall/.dotfiles/zsh'
+let g:netrw_dirhist_2='/home/njiall/.dotfiles'
+let g:netrw_dirhist_3='/home/njiall/Projects/black_beast_of_args/src/defaults'
+let g:netrw_dirhist_4='/home/njiall/Projects/black_beast_of_args/src'

@@ -1,13 +1,16 @@
-"Jumping to 21st century... please wait...
+" Jumping to 21st century... please wait...
 set nocompatible
-"An abberation is about to happen, sensible people be careful
+" An abberation is about to happen, sensible people be careful
 set mouse=a
 
-"===============================================================================
-"	Start plugins
-"===============================================================================
+"=============================================================================="
+"	Start plugins                                                              "
+"=============================================================================="
+" I use vim plug which is an old vim package manager but has the merits of
+" being multithreaded for multiple installations which speeds up the setup
+" process.
 call plug#begin(expand('~/.local/share/nvim/plugged'))
-"===============================================================================
+"=============================================================================="
 "	Add or remove bundles here:
 "			Snippets / Linting
 Plug 'w0rp/ale'
@@ -15,100 +18,106 @@ Plug 'sheerun/vim-polyglot'
 "			Syntax
 Plug 'scrooloose/nerdcommenter'
 Plug 'justinmk/vim-syntax-extra'
-Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/ctags.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'chrisbra/Colorizer'
 "			Useful
 Plug 'mhinz/vim-startify'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
+Plug 'wincent/terminus'
 "			Colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'jacoborus/tender'
-Plug 'mhinz/vim-janah'
 Plug 'joshdick/onedark.vim'
-Plug 'liuchengxu/space-vim-dark'
-Plug 'arcticicestudio/nord-vim'
-Plug 'nightsense/vimspectr'
 "			Display bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "			Icons (Nerd font support)
 Plug 'ryanoasis/vim-devicons'
-"===============================================================================
+"=============================================================================="
 call plug#end()
-"===============================================================================
-"	End plugins
-"===============================================================================
+"=============================================================================="
+"	End plugins                                                                "
+"=============================================================================="
 
 "	For conceal markers
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+	set conceallevel=2 concealcursor=niv
 endif
 
-"===============================================================================
-"	Display
-"===============================================================================
-silent! colorscheme gruvbox
+"=============================================================================="
+"	Display                                                                    "
+"=============================================================================="
+try
+	colorscheme gruvbox
+catch
+	try
+		colorscheme onedark
+		echom "Error: gruvbox theme couldn't be loaded, default to fallback"
+	catch
+		echom "Error: colorschemes couldn't be loaded!"
+	endtry
+endtry
+set nolazyredraw
 set background=dark
 let g:gruvbox_contrast_dark='hard'
-"		Transparency but buggy with gruvbox
-"hi NonText guibg=NONE ctermbg=none
+"		Transparency is a bit buggy with Airline
 hi Normal guibg=NONE ctermbg=NONE
+" hi NonText guibg=NONE ctermbg=none
 "		Defaults
-set title
-set cc=80
-set number
-set relativenumber
-set fileencoding=utf-8
-set history=500
-"		Speedups
-set gdefault
-set gcr=a:blinkon500-blinkwait500-blinkoff500
-set timeoutlen=1000 ttimeoutlen=0
+set title              " Enable window title
+set cc=80              " Color column
+set number             " Enable number gutter
+set relativenumber     " Numbers on gutter are now relative
+set fileencoding=utf-8 " Defaults to Utf-8
+set history=500        " Commands and search patterns history limit
+"		Additionals
+set modeline           " enable vim modelines
+set hlsearch           " highlight search items
+set incsearch          " searches are performed as you type
+set confirm            " ask confirmation like save before quit.
+set shortmess+=aAcIws  " Hide or shorten certain messages
 "		Comportement
-set ai
-set wrap
-set showcmd
-set showmatch
-set linebreak
-set smartcase
-set ignorecase
-set linespace=0
-set nostartofline
+set ai                 " Auto indent
+set showmatch          " Show matching bracket
+set wrap               " Wrap lines
+set linebreak          " Wrapping happens between words
+set smartcase          " Only match case if Upper case used
+set ignorecase         " Required for smartcase
+set linespace=0        " Ensuring there is no space between lines
+set nostartofline      " Moves the cursor at the first whitespace instead.
+set noet               " No space indent
+set sts=0 sw=4 ts=4    " Tabulations at 4 spaces
+set path+=**           " Path for recursive file finding
 if has('nvim')
-	set tagcase=smart
+	set tagcase=smart  " Nvim supports smartcase for tags
 endif
-set noet sts=0 sw=4 ts=4
 "		Splits
-set splitright
-set splitbelow
+set splitright         " Splits will happen to the right
+set splitbelow         " Splits will happen to the bottom
 if has('nvim')
 	set inccommand=nosplit
 endif
 "		Menus
-set showcmd
-set wildmenu
-set completeopt=menu,menuone,preview
-set clipboard=unnamed
+set showcmd            " Show successfuly executed commands
+set wildmenu           " Enable menu used for completion of comands
+set completeopt=menu,menuone,preview " Completion option
+set clipboard=unnamed  " Clipboard used by system that default copy paste
 "		WhiteSpaces
-set syntax=whitespace
-set showbreak=↪\
-set listchars=eol:.,tab:+-,trail:~
-set rnu
-set list
-set noshowmode
-set path+=**
+set showbreak=↪\       " Wrapping char
+set listchars=eol:.,tab:+-,trail:~ " Whitespace rendering
+set list               " Show whitespaces
+set noshowmode         " Since Airline installed no need to show mode
+"		Speedups
+set gdefault           " Substition defaults to single line
+set gcr=a:blinkon500-blinkwait500-blinkoff500 " Cursor display in GUI mode
+set tm=1000 ttm=0      =
 
-"===============================================================================
-"	Ale config
-"===============================================================================
+"=============================================================================="
+"	Ale config                                                                 "
+"=============================================================================="
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = ''
@@ -120,19 +129,23 @@ let g:ale_statusline_format =[' %d E ', ' %d W ', '']
 
 let g:ale_cpp_clang_options = '-std=c++14 -Wall'
 
-"===============================================================================
-"	Airline config
-"===============================================================================
-let g:airline_right_sep = ' '
-let g:airline_left_sep = ' '
+"=============================================================================="
+"	Airline config                                                             "
+"=============================================================================="
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts=1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
 
-"===============================================================================
-"	Abrevations
-"===============================================================================
+autocmd VimEnter * AirlineRefresh
+
+"=============================================================================="
+"	Abrevations                                                                "
+"=============================================================================="
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
@@ -148,9 +161,9 @@ cnoreabbrev T tabe
 cnoreabbrev f find
 cnoreabbrev F find
 
-"===============================================================================
-"	Completion
-"===============================================================================
+"=============================================================================="
+"	Completion settings                                                        "
+"=============================================================================="
 set wildmode=list:full
 set wildignore=*.o,*.obj,*~
 set wildignore+=*.git*
@@ -164,11 +177,13 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"===============================================================================
-"	Backup (Persistent undo)
-"===============================================================================
-silent !mkdir ~/.config/nvim/backups > /dev/null 2>&1
-set undodir=~/.config/nvim/backups
+"=============================================================================="
+"	Backup (Persistent undo) by file versioning                                "
+"=============================================================================="
+"		Setup backup dir
+silent !mkdir ~/.vim/backups > /dev/null 2>&1
+"		Setup undo dir
+set undodir=~/.vim/backups
 set undofile
 set autowrite
 "		Turn off swapfiles
@@ -176,25 +191,25 @@ set noswapfile
 set nobackup
 set nowb
 
-"===============================================================================
-"	Custom functions
-"===============================================================================
-func! Set_column_at_cursor()
-	let pos=virtcol(".")
-	let &cc.= pos
-endf
+"=============================================================================="
+"	Custom functions                                                           "
+"=============================================================================="
 
-"===============================================================================
-"	Mappings
-"===============================================================================
+"=============================================================================="
+"	Mappings                                                                   "
+"=============================================================================="
 "		Restore delete native comportement
 set backspace=indent,eol,start
 "		Maps
-nnoremap <silent> <leader><C-f> :call Set_column_at_cursor() <CR>
-nnoremap <leader><C-t> :so $MYVIMRC \| syntax enable <CR>
-map <leader><C-d> :set cc=80 <CR>
-map <leader><C-s> :set cursorline! <CR>
-map <Space><Space> :vs \| :CtrlPBuffer<CR>
+"	Vimrc reload
+nnoremap <leader><C-r> :so $MYVIMRC <CR>
+autocmd BufWritePost .vimrc,.gvimrc,init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+"	Colorcolumn binding
+nnoremap <silent> <leader><C-c> :let &cc=virtcol(".") <CR>
+nnoremap <leader><C-d> :set cc=80 <CR>
+nnoremap <leader><C-l> :set cursorline! <CR>
+"	New pane binding
+nnoremap <Space><Space> :vs \| :CtrlPMixed<CR>
 "		Move between slits
 nnoremap <c-h> <C-w>h
 nnoremap <c-j> <C-w>j
@@ -209,6 +224,3 @@ nnoremap <c-Space> <C-w>p
 nnoremap p p`]
 vnoremap y y`]
 vnoremap p p`]
-
-set nolazyredraw
-

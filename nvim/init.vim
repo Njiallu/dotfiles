@@ -15,6 +15,7 @@ call plug#begin(expand('~/.local/share/nvim/plugged'))
 "			Snippets / Linting
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
+Plug 'pbondoer/vim-42header'
 "			Syntax
 Plug 'scrooloose/nerdcommenter'
 Plug 'justinmk/vim-syntax-extra'
@@ -60,9 +61,9 @@ catch
 		echom "Error: colorschemes couldn't be loaded!"
 	endtry
 endtry
-set nolazyredraw
 set background=dark
 let g:gruvbox_contrast_dark='hard'
+syntax on
 "		Transparency is a bit buggy with Airline
 hi Normal guibg=NONE ctermbg=NONE
 " hi NonText guibg=NONE ctermbg=none
@@ -80,7 +81,7 @@ set incsearch          " searches are performed as you type
 set confirm            " ask confirmation like save before quit.
 set shortmess+=aAcIws  " Hide or shorten certain messages
 "		Comportement
-set ai                 " Auto indent
+set autoindent         " Automatic indentation
 set showmatch          " Show matching bracket
 set wrap               " Wrap lines
 set linebreak          " Wrapping happens between words
@@ -106,14 +107,14 @@ set wildmenu           " Enable menu used for completion of comands
 set completeopt=menu,menuone,preview " Completion option
 set clipboard=unnamed  " Clipboard used by system that default copy paste
 "		WhiteSpaces
-set showbreak=↪\       " Wrapping char
+set showbreak=↪        " Wrapping char
 set listchars=eol:.,tab:+-,trail:~ " Whitespace rendering
 set list               " Show whitespaces
 set noshowmode         " Since Airline installed no need to show mode
 "		Speedups
-set gdefault           " Substition defaults to single line
-set gcr=a:blinkon500-blinkwait500-blinkoff500 " Cursor display in GUI mode
-set tm=1000 ttm=0      =
+"set gdefault           " Substition defaults to single line
+"set gcr=a:blinkon500-blinkwait500-blinkoff500 " Cursor display in GUI mode
+"set tm=1000 ttm=0
 
 "=============================================================================="
 "	Ale config                                                                 "
@@ -142,6 +143,20 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled=1
 
 autocmd VimEnter * AirlineRefresh
+
+"=============================================================================="
+"	Startify config                                                            "
+"=============================================================================="
+let g:startify_custom_header = [
+	\ '        ::::    :::     :::  :::              :::  :::       :::      ::::::::  ',
+	\ '       :+:+:   :+:                           :+:  :+:      :+:      :+:    :+:  ',
+	\ '      :+:+:+  +:+     +:+  +:+   .+:+:+.:+: +:+  +:+     +:+ +:+         +:+    ',
+	\ '     +#+ +:+ +#+     +#+  +#+  +:++#++#++: +#+  +#+    +#+  +:+       +#+       ',
+	\ '    +#+  +#+#+#     +#+  +#+  +#+     +#+ +#+  +#+   +#+#+#+#+#+   +#+          ',
+	\ '   #+#   #+#+# #+# #+#  #+#  #+#+#+#+#+# #+#  #+#         #+#    #+#            ',
+	\ '  ###    ####  #####   ###    ##### ### ###  ###   @     ###   ########.fr      ',
+	\ ''
+	\ ]
 
 "=============================================================================="
 "	Abrevations                                                                "
@@ -203,11 +218,11 @@ set backspace=indent,eol,start
 "		Maps
 "	Vimrc reload
 nnoremap <leader><C-r> :so $MYVIMRC <CR>
-autocmd BufWritePost .vimrc,.gvimrc,init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+" autocmd BufWritePost .vimrc,.gvimrc,init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 "	Colorcolumn binding
-nnoremap <silent> <leader><C-c> :let &cc=virtcol(".") <CR>
-nnoremap <leader><C-d> :set cc=80 <CR>
-nnoremap <leader><C-l> :set cursorline! <CR>
+nnoremap <silent> <leader><C-s> :let &cc=virtcol(".") <CR>
+nnoremap <leader><C-d> :set cc=80<CR>
+nnoremap <leader><C-l> :set cursorline!<CR>
 "	New pane binding
 nnoremap <Space><Space> :vs \| :CtrlPMixed<CR>
 "		Move between slits
@@ -216,9 +231,9 @@ nnoremap <c-j> <C-w>j
 nnoremap <c-k> <C-w>k
 nnoremap <c-l> <C-w>l
 nnoremap <c-Space> <C-w>p
-"noremap <Up> :echo "noob!" <CR>
-"noremap <Down> :echo "noob!" <CR>
-"noremap <Left> :echo "noob!" <CR>
+"noremap <Up>    :echo "noob!" <CR>
+"noremap <Down>  :echo "noob!" <CR>
+"noremap <Left>  :echo "noob!" <CR>
 "noremap <Right> :echo "noob!" <CR>
 "		Move to the end of yanked text after yank and paste
 nnoremap p p`]

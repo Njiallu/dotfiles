@@ -131,8 +131,8 @@ color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
 
-background          = ${self.background_t}
-background_alt      = ${self.background_alt_t}
+;background          = ${self.background_t}
+;background_alt      = ${self.background_alt_t}
 
 width               = 100%
 height              = 30
@@ -161,7 +161,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 ; Tray
 tray-position       = right
 tray-padding        = 3
-tray-transparent    = 40
+tray-maxsize        = 24
 tray-background     = ${self.background}
 tray-foreground     = ${self.foreground}
 

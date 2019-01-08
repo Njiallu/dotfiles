@@ -38,6 +38,9 @@ client.unfocused          #282828af #282828af #fabd2f   #fabd2f
 client.urgent             #00       #fb4834   #ebdbb2   #282828
 
 new_window none
+new_float none
+
+for_window [class="Unity"] floating enable
 
 #::::::::::::::::::::::::::::: Key Bindings :::::::::::::::::::::::::::::::::::#
 

@@ -29,6 +29,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
+Plug 'lilydjwg/colorizer'
 "			Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -51,6 +52,11 @@ endif
 "=============================================================================="
 "	Display                                                                    "
 "=============================================================================="
+if exists('+termguicolors')
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
 try
 	colorscheme gruvbox
 catch
@@ -224,7 +230,7 @@ nnoremap <silent> <leader><C-s> :let &cc=virtcol(".") <CR>
 nnoremap <leader><C-d> :set cc=80<CR>
 nnoremap <leader><C-l> :set cursorline!<CR>
 "	New pane binding
-nnoremap <Space><Space> :vs \| :CtrlPMixed<CR>
+nnoremap <Space><Space> :vs \| :CtrlP<CR>
 "		Move between slits
 nnoremap <c-h> <C-w>h
 nnoremap <c-j> <C-w>j
@@ -235,7 +241,19 @@ nnoremap <c-Space> <C-w>p
 "noremap <Down>  :echo "noob!" <CR>
 "noremap <Left>  :echo "noob!" <CR>
 "noremap <Right> :echo "noob!" <CR>
-"		Move to the end of yanked text after yank and paste
+"	Move to the end of yanked text after yank and paste
 nnoremap p p`]
 vnoremap y y`]
 vnoremap p p`]
+"	Search selected text forward and backward
+vnoremap <silent> / :<C-U>
+			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+			\gvy/<C-R><C-R>=substitute(
+			\escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+			\gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> ? :<C-U>
+			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+			\gvy?<C-R><C-R>=substitute(
+			\escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+			\gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> <leader>c :%s'<:'>/

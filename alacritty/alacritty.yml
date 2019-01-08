@@ -24,8 +24,8 @@ window:
 # Units are physical pixels; this is not DPI aware.
 # (change requires restart)
   padding:
-    x: 8
-    y: 8
+    x: 2
+    y: 2
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 4
@@ -36,7 +36,7 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   # Point size of the font
-  size: 6.0
+  size: 7.0
   # The normal (roman) font face to use.
   normal:
     family: 'DejaVuSansMono Nerd Font Mono'

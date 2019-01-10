@@ -1,8 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    config                                             :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: njiall </var/spool/mail/njiall>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/10 12:21:26 by njiall            #+#    #+#              #
+#    Updated: 2019/01/10 13:26:45 by njiall           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
 set $mod   Mod4
 set $app   Mod1
 set $meta  Shift
 set $dock  $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent
+set $log   $HOME/bin/rofi_run -l
 set $notif dunst
 set $lock  i3lock
 set $menu  rofi -show drun
@@ -12,26 +25,34 @@ set $term  alacritty
 set $tterm alacritty -e tmux
 set $wall  bash $HOME/.fehbg
 set $compo compton
-set $theme $HOME/.config/script/switch_theme.sh
+set $theme bash $HOME/.config/script/switch_theme.sh
 
-set $TERMINAL alacritty
+set $TERMINAL $term
 
 set $volume_step 5
-set $backlight_step 5
+
+set $blup    light -A 1
+set $bldn    light -U 1
+set $init_bl light -N 5
 
 font pango:DejaVuSans Mono 12
 floating_modifier $mod
 
+#::::::::::::::::::::::::::::::: Key Modes ::::::::::::::::::::::::::::::::::::#
+
+# Resizing
 set $resize Resize: Arrows to resize
 
+# Gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer: [Shift +] + | - | 0
 set $mode_gaps_inner Inner: [Shift +] + | - | 0
 
+#::::::::::::::::::::::::::: Display properties :::::::::::::::::::::::::::::::#
+
 gaps inner 10
 gaps outer 0
 
-# class                    border    back      text      indicator
 client.focused            #fe8019af #fe8019af #282828   #282828
 client.focused_inactive   #00       #1d2021   #928374   #282828
 client.unfocused          #282828af #282828af #fabd2f   #fabd2f
@@ -46,7 +67,6 @@ for_window [class="Unity"] floating enable
 
 bindsym $mod+q            kill
 bindsym $mod+w            kill
-bindsym Control+$meta+w   kill
 
 bindsym $mod+Return       exec --no-startup-id $term
 bindsym $mod+$meta+Return exec --no-startup-id $tterm
@@ -54,6 +74,32 @@ bindsym $mod+space        exec --no-startup-id $menu
 bindsym $mod+Tab          exec --no-startup-id $apps
 bindsym $app+Tab          exec --no-startup-id $tabs
 bindsym --release $mod+l  exec --no-startup-id $lock
+bindsym $mod+$meta+l      exec --no-startup-id $log
+
+# Pulse Audio controls
+bindsym --release XF86AudioRaiseVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%+ unmute
+bindsym --release XF86AudioLowerVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%- unmute
+bindsym --release XF86AudioMute         exec --no-startup-id amixer -D pulse sset Master toggle
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp             exec --no-startup-id $blup
+bindsym XF86MonBrightnessDown           exec --no-startup-id $bldn
+
+# Media player controls
+bindsym --release XF86AudioPlay         exec --no-startup-id playerctl play
+bindsym --release XF86AudioPause        exec --no-startup-id playerctl pause
+bindsym --release XF86AudioNext         exec --no-startup-id playerctl next
+bindsym --release XF86AudioPrev         exec --no-startup-id playerctl previous
+
+bindsym --release $mod+$meta+o          exec mpc toggle
+
+bindsym $mod+$app+c                     reload
+bindsym $mod+$app+r                     restart
+bindsym $mod+$app+$meta+e               exec i3-msg exit
+bindsym $mod+$app+$meta+t               $theme
+
+# Screenshot
+bindsym --release $mod+$meta+p          exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
 
 # Change focus
 bindsym $mod+Left         focus left
@@ -87,26 +133,6 @@ bindsym $mod+$app+space   focus mode_toggle
 # Focus the parent/child container
 bindsym $mod+a            focus parent
 bindsym $mod+d            focus child
-
-# Pulse Audio controls
-bindsym --release XF86AudioRaiseVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%+ unmute
-bindsym --release XF86AudioLowerVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%- unmute
-bindsym --release XF86AudioMute         exec --no-startup-id amixer -D pulse sset Master toggle
-
-# Sreen brightness controls
-bindsym --release XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc $backlight_step
-bindsym --release XF86MonBrightnessDown exec --no-startup-id xbacklight -dec $backlight_step
-
-# Media player controls
-bindsym --release XF86AudioPlay         exec playerctl play
-bindsym --release XF86AudioPause        exec playerctl pause
-bindsym --release XF86AudioNext         exec playerctl next
-bindsym --release XF86AudioPrev         exec playerctl previous
-
-bindsym $mod+$app+c                     reload
-bindsym $mod+$app+r                     restart
-bindsym $mod+$app+$meta+e               exec i3-msg exit
-bindsym $mod+$app+$meta+t               $theme
 
 #::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
 
@@ -146,8 +172,6 @@ bindsym $mod+$meta+9 move container to workspace $WS9
 bindsym $mod+$meta+0 move container to workspace $WS0
 
 #       Screenshot, music, monitors, etc.
-bindsym --release $mod+$meta+p exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
-bindsym --release $mod+$meta+o exec mpc toggle
 bindsym --release $mod+$meta+Left  move workspace to output left
 bindsym --release $mod+$meta+Right move workspace to output right
 
@@ -219,3 +243,6 @@ exec_always --no-startup-id "killall -q $notif; $notif"
 #  Polkit
 exec_always --no-startup-id "killall -q polkit-gnome-authentication-agent-1;\
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+# Backlight config
+exec_always --no-startup-id "$init_bl"
+

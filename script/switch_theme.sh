@@ -29,7 +29,7 @@ theme_to_apply=(
 )
 
 notify () {
-	$path/notify.sh -a "Theme switcher" "$@" -i "messagebox_info"
+	$path/notify.sh -a "Theme switcher" "$@" -i "applications-graphics"
 }
 
 get_theme_to_apply ()

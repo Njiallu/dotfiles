@@ -58,7 +58,7 @@ font-1 = "Material Design Icons"
 
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -106,7 +106,7 @@ font-1 = "Material Design Icons"
 
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -155,7 +155,7 @@ font-0 = "DejaVu Sans Mono:pixelsize=12;1"
 font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -215,7 +215,7 @@ font-0 = "DejaVu Sans Mono:pixelsize=12;1"
 font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -275,7 +275,7 @@ font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = memory cpu pulseaudio
 modules-center      = i3
-modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 
 ; Tray
 tray-position       = right
@@ -335,7 +335,7 @@ font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = memory cpu pulseaudio
 modules-center      = i3
-modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 
 ; Tray
 tray-position       = right
@@ -391,7 +391,7 @@ font-1 = "Material Design Icons"
 
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -439,7 +439,7 @@ font-1 = "Material Design Icons"
 
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -488,7 +488,7 @@ font-1 = "Material Design Icons:pixelsize=15;1"
 ; Modules positions
 modules-left        = powermenu i3
 modules-center      = date
-modules-right       = memory cpu xkeyboard pulseaudio xbacklight wlan battery
+modules-right       = memory cpu xkeyboard pulseaudio backlight-acpi wlan battery
 
 ; Tray
 tray-position       = right
@@ -547,7 +547,7 @@ font-0 = "DejaVu Sans Mono:pixelsize=12;1"
 font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = powermenu i3
-modules-center      = xkeyboard date xbacklight
+modules-center      = xkeyboard date backlight-acpi
 modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
@@ -607,7 +607,7 @@ font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = memory cpu pulseaudio
 modules-center      = i3
-modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 
 ; Tray
 tray-position       = right
@@ -667,7 +667,7 @@ font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = memory cpu pulseaudio
 modules-center      = i3
-modules-right       = date wlan xkeyboard xbacklight battery powermenu_alt
+modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 
 ; Tray
 tray-position       = right

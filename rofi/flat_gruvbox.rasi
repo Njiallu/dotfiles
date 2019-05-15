@@ -13,7 +13,6 @@ Modified: Mon Feb 12 2018 06:04:26 PST -0800
 
 configuration {
 	show-icons: true;
-	drun-icon-theme: "Paprius-Adapta-Nokoto";
 }
 
 * {
@@ -180,7 +179,7 @@ button.selected {
 
 textbox-prompt-sep {
 	expand:     false;
-	str:        "$";
+	str:        "";
 	text-color: @normal-foreground;
 	margin:     0 0.3em 0 0;
 }

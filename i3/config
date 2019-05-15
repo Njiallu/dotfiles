@@ -6,7 +6,7 @@
 #    By: njiall </var/spool/mail/njiall>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 12:21:26 by njiall            #+#    #+#              #
-#    Updated: 2019/01/10 13:26:45 by njiall           ###   ########.fr        #
+#    Updated: 2019/04/02 04:08:23 by njiall           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ bindsym $mod+Return       exec --no-startup-id $term
 bindsym $mod+$meta+Return exec --no-startup-id $tterm
 bindsym $mod+space        exec --no-startup-id $menu
 bindsym $mod+Tab          exec --no-startup-id $apps
-bindsym $app+Tab          exec --no-startup-id $tabs
+bindsym $app+Tab          exec --no-startup-id $apps
 bindsym --release $mod+l  exec --no-startup-id $lock
 bindsym $mod+$meta+l      exec --no-startup-id $log
 
@@ -99,7 +99,7 @@ bindsym $mod+$app+$meta+e               exec i3-msg exit
 bindsym $mod+$app+$meta+t               $theme
 
 # Screenshot
-bindsym --release $mod+$meta+p          exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png
+bindsym --release $mod+$meta+p          exec maim --hidecursor -s ~/.ss.png && xclip -sel c -t image/png ~/.ss.png && notify.sh -a 'Screenshot taken!' -i camera-photo '~/.ss.png'
 
 # Change focus
 bindsym $mod+Left         focus left

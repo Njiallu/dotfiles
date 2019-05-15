@@ -1,1 +1,2 @@
 alias :q=exit
+alias nope='nvim **/*.h **/*.c **/Makefile'

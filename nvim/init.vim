@@ -14,6 +14,14 @@ call plug#begin(expand('~/.local/share/nvim/plugged'))
 "	Add or remove bundles here:
 "			Snippets / Linting
 Plug 'w0rp/ale'
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+endif
+"Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'pbondoer/vim-42header'
 "			Syntax
@@ -28,16 +36,18 @@ Plug 'tpope/vim-surround'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
-Plug 'wincent/terminus'
-Plug 'lilydjwg/colorizer'
+if &term != "linux"
+	Plug 'wincent/terminus'
+	Plug 'lilydjwg/colorizer'
+"			Icons (Nerd font support)
+	Plug 'ryanoasis/vim-devicons'
+"			Display bar
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+endif
 "			Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
-"			Display bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"			Icons (Nerd font support)
-Plug 'ryanoasis/vim-devicons'
 "=============================================================================="
 call plug#end()
 "=============================================================================="
@@ -111,7 +121,7 @@ endif
 set showcmd            " Show successfuly executed commands
 set wildmenu           " Enable menu used for completion of comands
 set completeopt=menu,menuone,preview " Completion option
-set clipboard=unnamed  " Clipboard used by system that default copy paste
+set clipboard^=unnamed,unnamedplus " Clipboard used by system that default copy paste
 "		WhiteSpaces
 set showbreak=↪        " Wrapping char
 set listchars=eol:.,tab:+-,trail:~ " Whitespace rendering
@@ -135,6 +145,8 @@ let g:ale_lint_on_save = 1
 let g:ale_statusline_format =[' %d E ', ' %d W ', '']
 
 let g:ale_cpp_clang_options = '-std=c++14 -Wall'
+
+let g:deoplete#enable_at_startup = 1
 
 "=============================================================================="
 "	Airline config                                                             "
@@ -230,7 +242,9 @@ nnoremap <silent> <leader><C-s> :let &cc=virtcol(".") <CR>
 nnoremap <leader><C-d> :set cc=80<CR>
 nnoremap <leader><C-l> :set cursorline!<CR>
 "	New pane binding
-nnoremap <Space><Space> :vs \| :CtrlP<CR>
+nnoremap <Space><Space> :CtrlPBuffer<CR>
+nnoremap n<Space><Space> :vs \| :CtrlPBuffer<CR>
+nnoremap N<Space><Space> :sp \| :CtrlPBuffer<CR>
 "		Move between slits
 nnoremap <c-h> <C-w>h
 nnoremap <c-j> <C-w>j

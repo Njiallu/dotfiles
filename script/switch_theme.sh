@@ -10,6 +10,7 @@ wallpapers=$(find "$path_wallpaper" -type f \( -iname '*.jpg' -o -iname '*.jpeg'
 themes=(
 "gruvbox"
 "laserbox"
+"lasershift"
 )
 bars=(
 "flat"
@@ -118,6 +119,8 @@ blur_wallpaper () {
 
 change_polybar () {
 	$path/launch_bar.sh -rqfc $path_bar/config $1
+	echo "$path/launch_bar.sh -rqfc $path_bar/config $1" > ~/.polybar
+	chmod +x ~/.polybar
 }
 
 change_i3wm () {

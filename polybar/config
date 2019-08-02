@@ -35,6 +35,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 width               = 100%
 height              = 30
@@ -83,6 +85,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 width               = 100%
 height              = 30
@@ -130,6 +134,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 ;background          = ${self.background_t}
 ;background_alt      = ${self.background_alt_t}
@@ -190,6 +196,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
@@ -249,6 +257,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
@@ -294,7 +304,7 @@ cursor-scroll       = ns-resize
 
 [bar/bottom_gruvbox_flat_alt_transparent]
 bottom              = 1
-inherit             = colors_laserbox
+inherit             = colors_gruvbox
 monitor             = ${env:MONITOR:eDP1}
 
 color_cpu           = ${self.none}
@@ -309,6 +319,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
@@ -368,6 +380,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 width               = 100%
 height              = 30
@@ -416,6 +430,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 width               = 100%
 height              = 30
@@ -463,6 +479,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
 
@@ -522,6 +540,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
@@ -581,6 +601,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
@@ -641,6 +663,8 @@ color_bat_charged   = ${self.success}
 color_bat_discharge = ${self.primary}
 color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
+color_wm_selected   = ${self.primary}
+color_wm_urgent     = ${self.warning}
 
 background          = ${self.background_t}
 background_alt      = ${self.background_alt_t}
@@ -683,5 +707,113 @@ tray-foreground     = ${self.foreground}
 
 cursor-click        = pointer
 cursor-scroll       = ns-resize
+
+[bar/top_lasershift_flat_transparent]
+inherit             = colors_lasershift
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.accent_2}
+color_layout        = ${self.violet_dark}
+color_backlight     = ${self.accent_2}
+color_vol_enabled   = ${self.primary}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.primary}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.primary}
+color_wm_selected   = ${self.blue}
+color_wm_urgent     = ${self.red}
+
+;background          = ${self.background_t}
+;background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #2fffffff
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date backlight-acpi
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = right
+tray-padding        = 3
+tray-maxsize        = 24
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
+
+[bar/bottom_lasershift_flat_transparent]
+bottom              = 1
+inherit             = colors_lasershift
+monitor             = ${env:MONITOR:eDP1}
+
+color_cpu           = ${self.none}
+color_mem           = ${self.none}
+color_date          = ${self.aqua}
+color_layout        = ${self.aqua_dark}
+color_backlight     = ${self.aqua}
+color_vol_enabled   = ${self.violet_dark}
+color_vol_disabled  = ${self.failure}
+color_bat_charge    = ${self.warning}
+color_bat_charged   = ${self.success}
+color_bat_discharge = ${self.violet_dark}
+color_net_disabled  = ${self.failure}
+color_net_connected = ${self.violet_dark}
+color_wm_selected   = ${self.lime}
+color_wm_urgent     = ${self.red}
+
+background          = ${self.background_t}
+background_alt      = ${self.background_alt_t}
+
+width               = 100%
+height              = 30
+radius              = 0
+offset-x            = 0
+offset-y            = 0
+fixed-center        = true
+
+padding-left        = 1.05%
+padding-right       = 1.05%
+module-margin       = 1
+
+border-size         = 0
+border-color        = #00000000
+line-size           = 1
+line-color          = #000000
+underline-size      = 2
+
+font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-1 = "Material Design Icons"
+
+; Modules positions
+modules-left        = powermenu i3
+modules-center      = xkeyboard date backlight-acpi
+modules-right       = cpu memory wlan pulseaudio battery
+
+; Tray
+tray-position       = right
+tray-padding        = 3
+tray-maxsize        = 24
+tray-background     = ${self.background}
+tray-foreground     = ${self.foreground}
 
 ; vim:ft=dosini

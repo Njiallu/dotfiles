@@ -65,6 +65,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
 tray-position       = right
+tray-background     = ${self.background_t}
 cursor-click        = pointer
 cursor-scroll       = ns-resize
 
@@ -115,6 +116,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
 tray-position       = right
+tray-background     = ${self.background_t}
 cursor-click        = pointer
 cursor-scroll       = ns-resize
 
@@ -168,7 +170,8 @@ modules-right       = cpu memory wlan pulseaudio battery
 tray-position       = right
 tray-padding        = 3
 tray-maxsize        = 24
-tray-background     = ${self.background}
+tray-transparency   = true
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -230,7 +233,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -291,7 +294,7 @@ modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -353,7 +356,7 @@ modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -410,6 +413,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
 tray-position       = right
+tray-background     = ${self.background_t}
 cursor-click        = pointer
 cursor-scroll       = ns-resize
 
@@ -460,6 +464,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 
 ; Tray
 tray-position       = right
+tray-background     = ${self.background_t}
 cursor-click        = pointer
 cursor-scroll       = ns-resize
 
@@ -481,7 +486,7 @@ color_net_disabled  = ${self.failure}
 color_net_connected = ${self.success}
 color_wm_selected   = ${self.primary}
 color_wm_urgent     = ${self.warning}
-background          = ${self.background_t}
+;background          = ${self.background}
 background_alt      = ${self.background_alt_t}
 
 width               = 100%
@@ -510,6 +515,7 @@ modules-right       = memory cpu xkeyboard pulseaudio backlight-acpi wlan batter
 
 ; Tray
 tray-position       = right
+tray-background     = ${self.background}
 tray-maxsize        = 24
 tray-padding        = 3
 tray-transparent    = true
@@ -574,7 +580,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -635,7 +641,7 @@ modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -697,7 +703,7 @@ modules-right       = date wlan xkeyboard backlight-acpi battery powermenu_alt
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = 40
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; Wm options
@@ -758,7 +764,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 tray-position       = right
 tray-padding        = 3
 tray-maxsize        = 24
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 [bar/bottom_lasershift_flat_transparent]
@@ -813,7 +819,7 @@ modules-right       = cpu memory wlan pulseaudio battery
 tray-position       = right
 tray-padding        = 3
 tray-maxsize        = 24
-tray-background     = ${self.background}
+tray-background     = ${self.background_t}
 tray-foreground     = ${self.foreground}
 
 ; vim:ft=dosini

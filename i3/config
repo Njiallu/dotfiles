@@ -6,7 +6,7 @@
 #    By: njiall </var/spool/mail/njiall>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 12:21:26 by njiall            #+#    #+#              #
-#    Updated: 2019/04/02 04:08:23 by njiall           ###   ########.fr        #
+#    Updated: 2020/05/26 00:10:14 by njiall           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ set $apps  rofi -show window
 set $tabs  rofi -show combi
 set $term  alacritty
 set $tterm alacritty -e tmux
-set $wall  bash $HOME/.fehbg
-set $compo compton
+set $wall  nitrogen --restore
+set $compo picom
 set $theme bash $HOME/.config/script/switch_theme.sh
 
 set $TERMINAL $term
@@ -37,6 +37,10 @@ set $init_bl light -N 5
 
 font pango:DejaVuSans Mono 12
 floating_modifier $mod
+
+#i3gaps rounded specifics
+#border_radius 10
+for_window [class=".*"] border pixel 0
 
 #::::::::::::::::::::::::::::::: Key Modes ::::::::::::::::::::::::::::::::::::#
 
@@ -67,6 +71,8 @@ for_window [class="Unity"] floating enable
 
 bindsym $mod+q            kill
 bindsym $mod+w            kill
+
+bindsym $mod+$meta+w      exec --no-startup-id nitrogen
 
 bindsym $mod+Return       exec --no-startup-id $term
 bindsym $mod+$meta+Return exec --no-startup-id $tterm
@@ -237,7 +243,7 @@ exec_always --no-startup-id "$wall"
 #  Polybar
 exec_always --no-startup-id $dock
 #  Compton
-exec_always --no-startup-id "killall -q $compo; $compo --config ~/.config/compton/compton.conf --blur-method kawase --blur-strength 10"
+exec_always --no-startup-id "killall -q $compo; $compo --experimental-backends --config ~/.config/compton/compton.conf --blur-strength 10"
 #  Dunst
 exec_always --no-startup-id "killall -q $notif; $notif"
 #  Polkit
@@ -245,4 +251,5 @@ exec_always --no-startup-id "killall -q polkit-gnome-authentication-agent-1;\
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # Backlight config
 exec_always --no-startup-id "$init_bl"
-
+# Set caps_lock as escape
+exec_always --no-startup-id "setxkbmap -layout us -option caps:escape"

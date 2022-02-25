@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/njiall/Projects/pipotron/src'
+let g:netrw_dirhist_2='/home/njiall/.config/nvim'
 let g:netrw_dirhist_1='/home/njiall/Projects/print_format/libft/tests/dynarray'

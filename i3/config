@@ -1,31 +1,18 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    config                                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: njiall </var/spool/mail/njiall>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/01/10 12:21:26 by njiall            #+#    #+#              #
-#    Updated: 2020/05/26 00:10:14 by njiall           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 #::::::::::::::::::::::::: General Custmisation :::::::::::::::::::::::::::::::#
 set $mod   Mod4
 set $app   Mod1
 set $meta  Shift
 set $dock  $HOME/.config/polybar/launch_bar.sh -frq top_gruvbox_flat_transparent
-set $log   $HOME/bin/rofi_run -l
 set $notif dunst
-set $lock  i3lock
-set $menu  rofi -show drun
 set $apps  rofi -show window
-set $tabs  rofi -show combi
 set $term  alacritty
 set $tterm alacritty -e tmux
 set $wall  nitrogen --restore
 set $compo picom
 set $theme bash $HOME/.config/script/switch_theme.sh
+set $lock  ~/.config/bin/lock.sh
+set $menu  ~/.config/rofi/launchers/misc/launcher.sh
+set $power ~/.config/rofi/applets/android/powermenu.sh
 
 set $TERMINAL $term
 
@@ -80,7 +67,7 @@ bindsym $mod+space        exec --no-startup-id $menu
 bindsym $mod+Tab          exec --no-startup-id $apps
 bindsym $app+Tab          exec --no-startup-id $apps
 bindsym --release $mod+l  exec --no-startup-id $lock
-bindsym $mod+$meta+l      exec --no-startup-id $log
+bindsym $mod+$meta+l      exec --no-startup-id $power
 
 # Pulse Audio controls
 bindsym --release XF86AudioRaiseVolume  exec --no-startup-id amixer -D pulse sset Master $volume_step%+ unmute
@@ -119,6 +106,12 @@ bindsym $mod+$meta+Down   move down
 bindsym $mod+$meta+Up     move up
 bindsym $mod+$meta+Right  move right
 
+# Move focused workspace
+bindsym $mod+$meta+$app+Left   move workspace to output left
+bindsym $mod+$meta+$app+Down   move workspace to output down
+bindsym $mod+$meta+$app+Up     move workspace to output up
+bindsym $mod+$meta+$app+Right  move workspace to output right
+
 # Split in h/v orientation
 bindsym $mod+h            split h
 bindsym $mod+v            split v
@@ -153,6 +146,9 @@ set $WS8   8
 set $WS9   9
 set $WS0   10
 
+workspace $WS1 output primary
+workspace $WS3 output HDMI-A-2
+
 #       Switch to workspace
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
@@ -178,8 +174,8 @@ bindsym $mod+$meta+9 move container to workspace $WS9
 bindsym $mod+$meta+0 move container to workspace $WS0
 
 #       Screenshot, music, monitors, etc.
-bindsym --release $mod+$meta+Left  move workspace to output left
-bindsym --release $mod+$meta+Right move workspace to output right
+#bindsym --release $mod+$meta+Left  move workspace to output left
+#bindsym --release $mod+$meta+Right move workspace to output right
 
 #:::::::::::::::::::::::::: Customize i3 modes ::::::::::::::::::::::::::::::::#
 

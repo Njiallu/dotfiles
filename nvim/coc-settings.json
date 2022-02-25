@@ -2,12 +2,7 @@
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",
-			"filetypes": [
-				"c",
-				"cpp",
-				"objc",
-				"objcpp"
-			],
+			"filetypes": [ "c", "cpp", "cuda", "objc", "objcpp" ],
 			"rootPatterns": [
 				".ccls",
 				"compile_commands.json",
@@ -22,5 +17,8 @@
 			}
 		}
 	},
-	"rust-client.channel": "nightly"
+	"coc.preferences.formatOnSaveFiletypes": ["rust"],
+	"rust-client.channel": "nightly",
+	"cSpellExt.enableDictionaries": ["french"],
+	"cSpell.language": "en,fr"
 }

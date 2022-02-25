@@ -8,8 +8,8 @@
 ;=====================================================
 
 [section/base]
-include-file = $XDG_CONFIG_HOME/polybar/colors.conf
-include-file = $XDG_CONFIG_HOME/polybar/modules.conf
+include-file = $HOME/.config/polybar/colors.conf
+include-file = $HOME/.config/polybar/modules.conf
 
 [settings]
 compositing-background = over
@@ -159,7 +159,7 @@ line-size           = 1
 line-color          = #2fffffff
 underline-size      = 2
 
-font-0 = "DejaVu Sans Mono:pixelsize=12;1"
+font-0 = "DejaVu Sans Mono:pixelsize=10;1"
 font-1 = "Material Design Icons"
 ; Modules positions
 modules-left        = powermenu i3

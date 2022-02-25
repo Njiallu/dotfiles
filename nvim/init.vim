@@ -5,6 +5,8 @@ set mouse=a
 " Auto reload config
 autocmd BufWritePost $MYVIMRC source %
 
+let g:polyglot_disabled = []
+
 "=============================================================================="
 "	Start plugins                                                              "
 "=============================================================================="
@@ -15,19 +17,11 @@ call plug#begin(expand('~/.local/share/nvim/plugged'))
 "=============================================================================="
 "	Add or remove bundles here:
 "			Snippets / Linting
-"Plug 'w0rp/ale'
-"Plug 'maralla/validator.vim'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'vim-scripts/ctags.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'mhinz/vim-crates'
-"if has('nvim')
-	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-	"Plug 'Shougo/deoplete.nvim'
-	"Plug 'roxma/nvim-yarp'
-	"Plug 'roxma/vim-hug-neovim-rpc'
-"endif
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 "			Syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
@@ -35,6 +29,8 @@ Plug 'agfline/c-syntax.vim'
 "Plug 'justinmk/vim-syntax-extra'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'dag/vim-fish'
+Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'romgrk/barbar.nvim'
 
 " (Optional) Multi-entry selection UI.
 "Plug 'junegunn/fzf'
@@ -119,7 +115,7 @@ set completeopt=menu,menuone,preview " Completion option
 set clipboard^=unnamed,unnamedplus " Clipboard used by system that default copy paste
 "		WhiteSpaces
 set showbreak=↪        " Wrapping char
-set listchars=eol:.,tab:+-,trail:~ " Whitespace rendering
+set listchars=lead:.,tab:+-,trail:~ " Whitespace rendering
 set list               " Show whitespaces
 set noshowmode         " Since Airline installed no need to show mode
 "		Speedups
@@ -128,30 +124,63 @@ set noshowmode         " Since Airline installed no need to show mode
 "set tm=1000 ttm=0
 
 "=============================================================================="
-"	Ale config                                                                 "
+"	Barbar config                                                              "
 "=============================================================================="
-"let g:ale_sign_column_always = 1
-"let g:ale_completion_enabled = 1
-""let g:ale_sign_error = ''
-""let g:ale_sign_warning = ''
-"let g:ale_linters = {'c': 'all'}
-"let g:ale_fixers = {}
-"let g:ale_lint_on_save = 1
-"let g:ale_statusline_format =[' %d E ', ' %d W ', '']
+let bufferline = {}
+" Magic buffer-picking mode
+nnoremap <silent> <C-s> :BufferPick<CR>
+" Sort automatically by...
+nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
+nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
+" Move to previous/next
+nnoremap <silent>    <A-,> :BufferPrevious<CR>
+nnoremap <silent>    <A-.> :BufferNext<CR>
+" Re-order to previous/next
+nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
+nnoremap <silent>    <A->> :BufferMoveNext<CR>
+" Goto buffer in position...
+nnoremap <silent>    <A-1> :BufferGoto 1<CR>
+nnoremap <silent>    <A-2> :BufferGoto 2<CR>
+nnoremap <silent>    <A-3> :BufferGoto 3<CR>
+nnoremap <silent>    <A-4> :BufferGoto 4<CR>
+nnoremap <silent>    <A-5> :BufferGoto 5<CR>
+nnoremap <silent>    <A-6> :BufferGoto 6<CR>
+nnoremap <silent>    <A-7> :BufferGoto 7<CR>
+nnoremap <silent>    <A-8> :BufferGoto 8<CR>
+nnoremap <silent>    <A-9> :BufferLast<CR>
+" Close buffer
+nnoremap <silent>    <A-c> :BufferClose<CR>
+" Wipeout buffer
+"                          :BufferWipeout<CR>
+" Other:
+" :BarbarEnable - enables barbar (enabled by default)
+" :BarbarDisable - very bad command, should never be used
 
-"let g:ale_cpp_clang_options = '-Wall -I./**/'
+" Highlight
 
-"let g:deoplete#enable_at_startup = 1
+function SetupBarbarColors()
+	hi BufferCurrent		ctermbg=NONE guibg=NONE
+	hi BufferCurrentMod		ctermbg=NONE guibg=NONE
+	hi BufferCurrentSign	ctermbg=NONE guibg=NONE
+	hi BufferCurrentTarget	ctermbg=NONE guibg=NONE
+
+	hi BufferVisible		ctermbg=NONE guibg=NONE
+	hi BufferVisibleMod		ctermbg=NONE guibg=NONE
+	hi BufferVisibleSign	ctermbg=NONE guibg=NONE
+	hi BufferVisibleTarget	ctermbg=NONE guibg=NONE
+endfunction
+
+autocmd VimEnter * call SetupBarbarColors()
 
 "=============================================================================="
 "	Airline config                                                             "
 "=============================================================================="
-let g:airline_theme='gruvbox'
+let g:airline_theme='gruvbox8'
 let g:airline_powerline_fonts=1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled=1
 
@@ -270,17 +299,6 @@ nnoremap <silent> <leader><C-s> :let &cc=virtcol(".") <CR>
 nnoremap <leader><C-d> :set cc=80<CR>
 nnoremap <leader><C-l> :set cursorline!<CR>
 
-"		Change colorscheme
-let g:fzf_layout = { 'down': '~40%' }
-nnoremap <silent> <Leader>C :call fzf#run({
-\   'source':
-\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-\   'sink':    'colo',
-\   'options': '+m',
-\   'left':    30
-\ })<CR>
-
 "		Interract with buffers
 nnoremap <silent> <Space><Space> :CocList buffers<CR>
 nnoremap <silent> \<Space><Space> :vnew \| :CocList buffers<CR>
@@ -322,7 +340,7 @@ if exists('+termguicolors')
 	set termguicolors
 endif
 try
-	colorscheme gruvbox
+	colorscheme gruvbox8
 catch
 	try
 		colorscheme onedark
@@ -454,8 +472,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-nnoremap <silent> <leader>r :Ranger<CR>
 if &shell =~# 'fish$'
 	set shell=sh
 endif
